@@ -1,7 +1,6 @@
-# Treemap Vis (using d3.js)
+# Looker Marketplace Install
 
-Dependencies:
+URL: git://github.com/ContrastingSounds/vis-treemap
+SHA: 67bb2a3f8874d7b0abf1f4979e2be87be076747a
 
-```
-https://d3js.org/d3.v4.js
-```
+![Install](docs/install.png)
