@@ -1,0 +1,19 @@
+{
+    "label": "Treemap",
+    "category_label": "Plug-ins",
+    "branding": {
+        "image_url": "https://svgsilh.com/png/576797-3f51b5.png",
+        "tagline": "Treemap visualization plug-in."
+    },
+    "constants": {
+        "VIS_LABEL": {
+            "label": "Treemap",
+            "description": "Treemap vis based on d3.js"
+        },
+        "VIS_ID": {
+            "label": "treemap",
+            "description": "Treemap visualization",
+            "value_constraint": "visualization"
+        }
+    }
+}
