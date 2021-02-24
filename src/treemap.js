@@ -320,7 +320,7 @@ const vis = {
                     .attr("stroke", defaultCellColor)
 
                     .on("mouseover", function(d) {
-                        console.log('mouseover', d3.event)
+                        // console.log('mouseover', d3.event)
                         //Get this bar's x/y values, then augment for the tooltip
                         var top_left_x = parseFloat(d3.select(this).attr("x"))
                         var top_left_y = parseFloat(d3.select(this).attr("y"))
@@ -361,7 +361,53 @@ const vis = {
                         d3.select("#tooltip").classed("hidden", true);
                     })
 
-                    .on("click", zoom)
+                    // .on("click", zoom)
+
+                    .on('click', d => {
+                      console.log('click d.data', d.data)
+                      console.log('dimensions', dimensions)
+                      if (details.crossfilterEnabled) {
+                        let cross_filter_dimension  // dimension to cross-filter
+                        let pseudoRow = {}          // fake 'row' object to send to cross filter api
+
+                        // Test whether use has clicked on a 'heading' or a 'tile'
+                        // to decide whether to cross-filter on first or second dimension 
+                        if ('key' in d.data && 'values' in d.data) {
+                          cross_filter_dimension = dimensions[0].name
+                          pseudoRow[cross_filter_dimension] = { value: d.data.key }
+                        } else {
+                          cross_filter_dimension = dimensions[1].name
+                          pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
+                        }
+                        console.log('pseudoRow', pseudoRow)
+                        
+                        LookerCharts.Utils.toggleCrossfilter({
+                            row: pseudoRow,
+                            event: d3.event,
+                        });
+                      } else {
+                        let event = {
+                          metaKey: d3.event.metaKey,
+                          pageX: d3.event.pageX,
+                          pageY: d3.event.pageY - window.pageYOffset
+                        }
+              
+                        LookerCharts.Utils.openDrillMenu({
+                          links: d.links,
+                          event: event
+                        })          
+                      }
+                    })
+
+                    .on('contextmenu', d => {
+                      if (details.crossfilterEnabled) {
+                        event.preventDefault()
+                        LookerCharts.Utils.openDrillMenu({
+                          links: d.links,
+                          event: event
+                        }) 
+                      }
+                    })
 
                 treemapCells.append("foreignObject")
                     .attr("x", d => d.x0 + 3)
