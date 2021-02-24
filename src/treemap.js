@@ -402,8 +402,11 @@ const vis = {
                     .on('contextmenu', d => {
                       if (details.crossfilterEnabled) {
                         event.preventDefault()
+                        // TODO: this should be based on the sizeBy measure
+                        let measure = measures[0].name
+
                         LookerCharts.Utils.openDrillMenu({
-                          links: d.links,
+                          links: d.data.metadata[measure].links,
                           event: event
                         }) 
                       }
