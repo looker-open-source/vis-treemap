@@ -11,7 +11,7 @@
             "description": "Treemap vis based on d3.js"
         },
         "VIS_ID": {
-            "label": "treemap",
+            "label": "Mimico treemap",
             "description": "Treemap visualization",
             "value_constraint": "visualization"
         }
