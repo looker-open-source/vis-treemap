@@ -1,5 +1,5 @@
 {
-    "label": "Treemap",
+    "label": "Mimico Treemap",
     "category_label": "Plug-ins",
     "branding": {
         "image_url": "https://svgsilh.com/png/576797-3f51b5.png",
@@ -7,7 +7,7 @@
     },
     "constants": {
         "VIS_LABEL": {
-            "label": "Treemap",
+            "label": "Mimico Treemap",
             "description": "Treemap vis based on d3.js"
         },
         "VIS_ID": {
