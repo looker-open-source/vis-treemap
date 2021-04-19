@@ -23,7 +23,7 @@ const default_options = {
     section: "Data",
     type: "array",
     display: "colors",
-    label: "Color Palette",
+    label: "Color Palette - Custom",
     default: ["#daaaa8", "#d59f9b", "#d09590", "#cc8c86", "#c8837c", "#c47b73", "#c07169", "#bc6960", "#b86157", "#b4574c", "#b04f43", "#aa4336"]
   },
   breadcrumbs: {
