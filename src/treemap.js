@@ -24,7 +24,7 @@ const default_options = {
     type: "array",
     display: "colors",
     label: "Color Palette",
-    default: ["#62bad4", "#a9c574", "#929292", "#9fdee0", "#1f3e5a", "#90c8ae", "#92818d", "#c5c6a6", "#82c2ca", "#cee0a0", "#928fb4", "#9fc190"]
+    default: ["#daaaa8", "#d59f9b", "#d09590", "#cc8c86", "#c8837c", "#c47b73", "#c07169", "#bc6960", "#b86157", "#b4574c", "#b04f43", "#aa4336"]
   },
   breadcrumbs: {
     type: "array",
