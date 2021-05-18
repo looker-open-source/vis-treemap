@@ -236,7 +236,7 @@ const vis = {
             if (d.depth === 0) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
-                    cell_string = "Top Level (" + display_value + ") – click on cells to zoom in, or click on this bar to zoom out"; 
+                    cell_string = "Top Level (" + display_value + "). Click on cells to zoom in, or click on this bar to zoom out"; 
                 } else {
                     cell_string = config.breadcrumbs.join(" – ") + " (" + display_value + ")";
                 }

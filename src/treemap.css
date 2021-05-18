@@ -19,6 +19,11 @@ rect:hover {
     font-size: 12px;
 }
 
+#tooltip:hover {
+    background-color: #aa4336;
+}
+
+
 #tooltip.hidden {
     display: none;
 }
