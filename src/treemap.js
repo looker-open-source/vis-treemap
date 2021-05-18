@@ -264,7 +264,7 @@ const vis = {
             if (d.height === 0) {
                 for (var prop in hierarchy_names) {
                     var metadata = d.data.metadata[hierarchy_names[prop]];
-                    if(metadata.rendered !== "null"){
+                    if(metadata.rendered !== undefined){
                         tiptext += "" + metadata.rendered + "</p>"; //<p><em>" + metadata.label + ":</em> 
                     }
                     
@@ -272,12 +272,12 @@ const vis = {
                 tiptext += '<br>'
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
-                    if(metadata.rendered !== "null"){
+                    if(metadata.rendered !== undefined){
                         tiptext += "<p><em>" + metadata.label + ":</em> " + metadata.rendered + "</p>";
                     }                    
                 }
             } else {
-                if(d.data.key !== "null")
+                if(d.data.key !== undefined)
                     tiptext += d.data.key;
             };
             
