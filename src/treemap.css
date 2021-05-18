@@ -39,8 +39,11 @@ rect:hover {
 .textdiv {
     font-family: "Open Sans",Helvetica,Arial,sans-serif;
     font-size: 12px;
-    margin: 10px 10px 10px 10px;
     pointer-events: none;
     overflow: none;
     white-space: nowrap;
+}
+
+.foreignobj{
+    padding: 5px
 }
