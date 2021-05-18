@@ -246,7 +246,9 @@ const vis = {
                 if (d.data.key == null) {
                     cell_string = '' ;
                 } else {
-                    if(d.data.key != null){
+                    if(d.data.key == "null"){
+                        cell_string = "";
+                    }else{
                         cell_string = "&#187; "+ d.data.key + " // (" + display_value + ")";
                     }                    
                 }
