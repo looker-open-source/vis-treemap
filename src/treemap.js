@@ -249,7 +249,7 @@ const vis = {
                     if(d.data.key == "null"){
                         cell_string = "";
                     }else{
-                        cell_string = "&#187; "+ d.data.key + " // (" + display_value + ")";
+                        cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
                     }                    
                 }
             } else if (d.height === 0) {
@@ -281,8 +281,12 @@ const vis = {
                     }                    
                 }
             } else {
-                if(d.data.key != null)
+                if(d.data.key == "null"){
+                    tiptext += "";
+                }else{
                     tiptext += d.data.key;
+                }
+                    
             };
             
             return tiptext;
