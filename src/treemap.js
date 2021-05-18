@@ -236,17 +236,17 @@ const vis = {
             if (d.depth === 0) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
-                    cell_string = "Top Level (" + display_value + "). Click on cells to zoom in, or click on this bar to zoom out"; 
+                    cell_string = "Top Level ($" + display_value + "). Click on cells to zoom in, or click on this bar to zoom out"; 
                 } else {
                     cell_string = "&#171; "+ config.breadcrumbs.join(" – ") + " (" + display_value + ")";
                 }
                 
             } else if (d.depth < number_of_headers && config.showSubHeaders) {
                 display_value = formatValue(d.value);
-                if (typeof d.data.key === 'undefined') {
+                if (d.data.key == null) {
                     cell_string = '' ;
                 } else {
-                    if(typeof d.data.key !== 'undefined'){
+                    if(d.data.key != null){
                         cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
                     }                    
                 }
