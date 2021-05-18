@@ -37,11 +37,12 @@ rect:hover {
 }
 
 .textdiv {
-    font-family: "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 12px;
+    font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 10px;
     pointer-events: none;
     overflow: none;
     white-space: nowrap;
+    color: dimgray;
 }
 
 .foreignobj{
