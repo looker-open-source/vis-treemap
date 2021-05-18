@@ -238,7 +238,7 @@ const vis = {
                 if (config.breadcrumbs.length === 0) {
                     cell_string = "Top Level (" + display_value + "). Click on cells to zoom in, or click on this bar to zoom out"; 
                 } else {
-                    cell_string = config.breadcrumbs.join(" – ") + " (" + display_value + ")";
+                    cell_string = "&#171; "+ config.breadcrumbs.join(" – ") + " (" + display_value + ")";
                 }
                 
             } else if (d.depth < number_of_headers && config.showSubHeaders) {
@@ -246,7 +246,7 @@ const vis = {
                 if (typeof d.data.key === 'undefined') {
                     cell_string = display_value ;
                 } else {
-                    cell_string = "&#171; "+ d.data.key + " (" + display_value + ")";
+                    cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
                 }
             } else if (d.height === 0) {
                 if (config["sizeBy"] === "count_of_rows") {
