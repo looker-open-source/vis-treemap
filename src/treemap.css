@@ -2,10 +2,6 @@ rect:hover {
     fill: #edd0ce;
 }
 
-.textdiv{
-    padding: 10;
-    font-size: 12px;
-}
 
 #tooltip {
     position: absolute;
@@ -43,6 +39,7 @@ rect:hover {
 .textdiv {
     font-family: "Open Sans",Helvetica,Arial,sans-serif;
     font-size: 12px;
+    padding: 10px 10px 10px 10px;
     pointer-events: none;
     overflow: none;
     white-space: nowrap;
