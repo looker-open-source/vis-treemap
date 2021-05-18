@@ -1,7 +1,7 @@
 project_name: "vis-treemap"
 
 visualization: {
-    id: "Mimico treemap"
+    id: "Razorhorse treemap"
     file: "treemap.js"
-    label: "Mimico Treemap"
+    label: "Razorhorse Treemap"
 }

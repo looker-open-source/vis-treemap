@@ -1,5 +1,5 @@
 {
-    "label": "Mimico Treemap v.1.0.1",
+    "label": "Razorhorse Treemap v.1.0.1",
     "category_label": "Plug-ins",
     "branding": {
         "image_url": "https://svgsilh.com/png/576797-3f51b5.png",
@@ -7,11 +7,11 @@
     },
     "constants": {
         "VIS_LABEL": {
-            "label": "Mimico Treemap Mimico Treemap v.1.0.1",
+            "label": "Razorhorse Treemap v.1.0.1",
             "description": "Treemap vis based on d3.js"
         },
         "VIS_ID": {
-            "label": "Mimico treemap Mimico Treemap v.1.0.1",
+            "label": "Razorhorse Treemap v.1.0.1",
             "description": "Treemap visualization",
             "value_constraint": "visualization"
         }
