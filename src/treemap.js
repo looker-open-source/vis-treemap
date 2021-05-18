@@ -388,9 +388,9 @@ const vis = {
                                       row: d.row,
                                       event: d3.event,
                                 })
-                                zoom
+                                zoom(d)
                         } else {
-                            zoom
+                            zoom(d)
                         } 
                     })
                         
