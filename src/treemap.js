@@ -272,12 +272,13 @@ const vis = {
                 tiptext += '<br>'
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
-                    if(metadata.rendered !== "null"){
+                    if(metadata.rendered !== null){
                         tiptext += "<p><em>" + metadata.label + ":</em> " + metadata.rendered + "</p>";
                     }                    
                 }
             } else {
-                tiptext += d.data.key;
+                if(d.data.key !== null)
+                    tiptext += d.data.key;
             };
             
             return tiptext;
