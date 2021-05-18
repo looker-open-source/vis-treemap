@@ -2,6 +2,10 @@ rect:hover {
     fill: #edd0ce;
 }
 
+.textdiv{
+    padding: 10;
+}
+
 #tooltip {
     position: absolute;
     width: auto;
