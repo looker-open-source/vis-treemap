@@ -3,7 +3,7 @@ const d3 = require('./d3loader')
 import './treemap.css';
 
 const defaultHeaderColor = "#edd0ce";
-const defaultCellColor = "AliceBlue";
+const defaultCellColor = "darkgrey";
 
 const default_options = {
   showSubHeaders: {
@@ -244,7 +244,7 @@ const vis = {
             } else if (d.depth < number_of_headers && config.showSubHeaders) {
                 display_value = formatValue(d.value);
                 if (typeof d.data.key === 'undefined') {
-                    cell_string = display_value ;
+                    cell_string = 'not here' //display_value ;
                 } else {
                     cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
                 }
@@ -252,7 +252,7 @@ const vis = {
                 if (config["sizeBy"] === "count_of_rows") {
                     cell_string = "1";
                 } else {
-                    cell_string = d.data.metadata[config["sizeBy"]].rendered;                    
+                    cell_string = 'here' //d.data.metadata[config["sizeBy"]].rendered;                    
                 }
             } 
 
