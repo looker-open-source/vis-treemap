@@ -401,7 +401,7 @@ const vis = {
                         while (d.depth > 1) {
                             d = d.parent;
                         }
-                        if (typeof d.data.key !== 'undefined') {
+                        if (d.data.key != null) {
                             config.breadcrumbs.push(d.data.key);
                             // zoom down
                             root = treemap(d3.hierarchy(d.data, d => d.values)
