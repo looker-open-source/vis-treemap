@@ -380,7 +380,20 @@ const vis = {
                         d3.select("#tooltip").classed("hidden", true);
                     })
 
-                    .on("click", zoom)
+                    // .on("click", zoom)
+
+                    .on("click", function (d) {
+                        if (details.crossfilterEnabled) {
+                                LookerCharts.Utils.toggleCrossfilter({
+                                      row: d.row,
+                                      event: d3.event,
+                                })
+                                zoom
+                        } else {
+                            zoom
+                        } 
+                    })
+                        
 
                 treemapCells.append("foreignObject")
                     .attr("x", d => d.x0 + 3)
