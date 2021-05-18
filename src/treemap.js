@@ -246,7 +246,9 @@ const vis = {
                 if (typeof d.data.key === 'undefined') {
                     cell_string = '' ;
                 } else {
-                    cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
+                    if(d.data.key != null){
+                        cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
+                    }                    
                 }
             } else if (d.height === 0) {
                 if (config["sizeBy"] === "count_of_rows") {
@@ -265,7 +267,7 @@ const vis = {
                 for (var prop in hierarchy_names) {
                     var metadata = d.data.metadata[hierarchy_names[prop]];
                     if(metadata.rendered != null){
-                        tiptext += "" + metadata.rendered + "</p>"; //<p><em>" + metadata.label + ":</em> 
+                        tiptext += "" + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
                     }
                     
                 }
@@ -273,7 +275,7 @@ const vis = {
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
                     if(metadata.rendered != null){
-                        tiptext += "<p><em>" + metadata.label + ":</em> " + metadata.rendered + "</p>";
+                        tiptext += "<p><em>" + metadata.label + ":</em> <b>" + metadata.rendered + "</b></p>";
                     }                    
                 }
             } else {
