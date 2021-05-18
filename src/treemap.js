@@ -246,7 +246,7 @@ const vis = {
                 if (typeof d.data.key === 'undefined') {
                     cell_string = display_value ;
                 } else {
-                    cell_string = d.data.key + " (" + display_value + ")";
+                    cell_string = "&#171; "+ d.data.key + " (" + display_value + ")";
                 }
             } else if (d.height === 0) {
                 if (config["sizeBy"] === "count_of_rows") {
