@@ -247,7 +247,7 @@ const vis = {
                     cell_string = '' ;
                 } else {
                     if(d.data.key != null){
-                        cell_string = "&#187; "+ d.data.key + " (" + display_value + ")";
+                        cell_string = "&#187; "+ d.data.key + " // (" + display_value + ")";
                     }                    
                 }
             } else if (d.height === 0) {
