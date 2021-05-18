@@ -2,7 +2,7 @@ const d3 = require('./d3loader')
 
 import './treemap.css';
 
-const defaultHeaderColor = "orange";
+const defaultHeaderColor = "#aa4336";
 const defaultCellColor = "AliceBlue";
 
 const default_options = {
