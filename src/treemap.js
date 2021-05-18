@@ -277,7 +277,7 @@ const vis = {
                     }                    
                 }
             } else {
-                if(d.data.key !== null)
+                if(d.data.key !== "null")
                     tiptext += d.data.key;
             };
             
