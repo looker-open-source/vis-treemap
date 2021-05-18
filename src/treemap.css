@@ -38,11 +38,10 @@ rect:hover {
 
 .textdiv {
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     pointer-events: none;
     overflow: none;
     white-space: nowrap;
-    color: dimgray;
 }
 
 .foreignobj{
