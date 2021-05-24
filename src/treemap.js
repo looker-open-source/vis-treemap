@@ -98,7 +98,7 @@ const getNewConfigOptions = function(dimensions, measures) {
         option[measures[i].label] = measures[i].name;
         size_by_options.push(option);
     }
-    size_by_options.push({"Count of Rows (TBD)": "count_of_rows"});
+    //size_by_options.push({"Count of Rows (TBD)": "count_of_rows"});
 
     new_options["sizeBy"] = {
         section: "Data",
@@ -314,7 +314,8 @@ const vis = {
             );
 
             const displayChart = function(d) {
-                d3.select("#treemapSVG").remove();
+                d3.select("#treemapSVG")
+                .remove();
 
                 var svg = d3.select("#treemapContainer")
                             .append("svg")
