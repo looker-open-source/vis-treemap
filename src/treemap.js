@@ -261,7 +261,7 @@ const vis = {
                 if (config["sizeBy"] === "count_of_rows") {
                     cell_string = "1";
                 } else {
-                    cell_string = d.data.metadata[config["sizeBy"]].rendered;                    
+                    cell_string = 'Value: ' + d.data.metadata[config["sizeBy"]].rendered;                    
                 }
             } 
 
