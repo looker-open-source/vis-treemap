@@ -406,6 +406,8 @@ const vis = {
                     // .on("click", zoom)
 
                     .on("click", function (d) {
+                        console.log("d", d)
+                        console.log("d.row", d3.event)
                         console.log("details.crossfilterEnabled", details.crossfilterEnabled)
                         console.log("d.row", d.data.taxonomy.sub_sector_level_2)
                         console.log("d.row", d3.event)
