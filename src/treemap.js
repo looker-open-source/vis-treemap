@@ -472,7 +472,7 @@ const vis = {
                         if (details.crossfilterEnabled) {
                             
                             //Remove
-                            let filter = d.data.splice(0, 2);
+                            let filter = delete d.data[0];
 
                             LookerCharts.Utils.toggleCrossfilter({row: filter})
 
