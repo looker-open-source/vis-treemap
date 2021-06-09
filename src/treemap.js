@@ -431,7 +431,7 @@ const vis = {
                         if (details.crossfilterEnabled) {
 
                             LookerCharts.Utils.toggleCrossfilter({
-                                row:  d.data,
+                                row:  d.data["taxonomy.sub_sector_level_2"],
                                 values: 'Horizontal'
                             })
 
