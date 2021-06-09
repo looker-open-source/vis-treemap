@@ -1,6 +1,9 @@
 rect {
-    background: #eee;
     border: 1px solid transparent;
+    pointer-events: all;
+}
+rect:hover {
+    border: 1px solid black;
 }
 
 #tooltip {
