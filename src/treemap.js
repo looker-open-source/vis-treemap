@@ -469,12 +469,23 @@ const vis = {
                         // }
                         // console.log("filter", filterObject)
 
+                        let data = 
+                        {
+                            
+                            "taxonomy.sub_sector_level_2": "Integrated GRC",
+                            "taxonomy.sub_sector_level_3": "Horizontal",
+                            "taxonomy.sub_sector_level_4": null,
+                            "account.total_revenue": 15213.7
+                        }
+
+                        let vals = ['1','2','3']
+
                         if (details.crossfilterEnabled) {
                             
                             //Remove
-                            let filter = delete d.data[0];
+                            let filter = delete d.data;
 
-                            LookerCharts.Utils.toggleCrossfilter({row: filter})
+                            LookerCharts.Utils.toggleCrossfilter({row: d.data, values: vals})
 
                             console.log("filter", filter)
                                 
