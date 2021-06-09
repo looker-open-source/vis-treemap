@@ -282,7 +282,7 @@ const vis = {
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
                     if(metadata.rendered != null){
-                        tiptext += "<p><em>" + metadata.label + ":</em></p>";
+                        //tiptext += "<p><em>" + metadata.label + ":</em></p>";
                     }                    
                 }
             } else {
