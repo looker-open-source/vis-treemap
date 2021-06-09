@@ -415,15 +415,15 @@ const vis = {
                         let filterLevel = ''
                         if(d.depth === 4)
                         {
-                            filterLevel = 0
+                            filterLevel = 1
                         }
                         if(d.depth === 3)
                         {
-                            filterLevel = 1
+                            filterLevel = 2
                         }
                         if(d.depth === 2)
                         {
-                            filterLevel = 2
+                            filterLevel = 3
                         }
 
                         console.log("filterLevel", filterLevel)
