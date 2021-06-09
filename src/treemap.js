@@ -433,8 +433,7 @@ const vis = {
                                 console.log("details.crossfilters", details.crossfilters)
 
                                 LookerCharts.Utils.toggleCrossfilter({
-                                      row: filter,
-                                      event: d3.event,
+                                      row:  d.data[0]
                                 })
                                 zoom(d)
                         } else {
