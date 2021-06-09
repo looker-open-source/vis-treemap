@@ -415,18 +415,18 @@ const vis = {
                         let filter = ''
                         if(d.depth === 4)
                         {
-                            filter = d.data["taxonomy.sub_sector_level_2"] 
+                            filterLevel = 0
                         }
                         if(d.depth === 3)
                         {
-                            filter = d.data["taxonomy.sub_sector_level_3"] 
+                            filterLevel = 1
                         }
                         if(d.depth === 2)
                         {
-                            filter = d.data["taxonomy.sub_sector_level_4"] 
+                            filterLevel = 2
                         }
 
-                        console.log("filter", filter)
+                        console.log("filterLevel", filterLevel)
 
 
                         // {
@@ -467,11 +467,11 @@ const vis = {
                         //     "taxonomy.sub_sector_level_2": "Compliance",
 
                         // }
-                        console.log("filter", filterObject)
+                        // console.log("filter", filterObject)
 
                         if (details.crossfilterEnabled) {
 
-                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"]})
+                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"][filterLevel]})
 
                             console.log("details.crossfilters", details.crossfilters)
                                 
