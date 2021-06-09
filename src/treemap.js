@@ -427,8 +427,11 @@ const vis = {
                         }
 
                         console.log("filter", filter)
-
+                        
                         if (details.crossfilterEnabled) {
+
+                                console.log("details.crossfilters", details.crossfilters)
+
                                 LookerCharts.Utils.toggleCrossfilter({
                                       row: filter,
                                       event: d3.event,
