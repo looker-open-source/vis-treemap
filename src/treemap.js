@@ -407,11 +407,28 @@ const vis = {
 
                     .on("click", function (d) {
                         console.log("details.crossfilterEnabled", details.crossfilterEnabled)
-                        console.log("d.row", d)
+                        console.log("d.row", d.data.taxonomy.sub_sector_level_2)
                         console.log("d.row", d3.event)
+                        
+                        let filter = ''
+                        if(d.data.depth === 4)
+                        {
+                            filter = d.data.taxonomy.sub_sector_level_2
+                        }
+                        if(d.data.depth === 3)
+                        {
+                            filter = d.data.taxonomy.sub_sector_level_3
+                        }
+                        if(d.data.depth === 2)
+                        {
+                            filter = d.data.taxonomy.sub_sector_level_4
+                        }
+
+                        console.log("filter", filter)
+
                         if (details.crossfilterEnabled) {
                                 LookerCharts.Utils.toggleCrossfilter({
-                                      row: d.row,
+                                      row: filter,
                                       event: d3.event,
                                 })
                                 zoom(d)
