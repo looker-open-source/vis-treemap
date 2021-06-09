@@ -412,7 +412,7 @@ const vis = {
                         console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
                         console.log("d.row", d3.event)
                         
-                        let filter = ''
+                        let filterLevel = ''
                         if(d.depth === 4)
                         {
                             filterLevel = 0
