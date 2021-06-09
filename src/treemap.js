@@ -466,13 +466,14 @@ const vis = {
                         // let data = {
                         //     "taxonomy.sub_sector_level_2": "Compliance",
 
-                        // }
+                        // }r
                         // console.log("filter", filterObject)
 
                         let data = 
                         {
                             
-                            "taxonomy.sub_sector_level_2": "Integrated GRC"
+                            filed: "taxonomy.sub_sector_level_2",
+                            values: ['Integrated GRC']
                         }
 
                         let vals = ['1','2','3']
