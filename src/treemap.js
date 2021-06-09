@@ -427,13 +427,16 @@ const vis = {
                         }
 
                         console.log("filter", filter)
-                        
+
+                        let filterObject = {
+                            row:  d.data["taxonomy.sub_sector_level_2"],
+                            values: ['Horizontal']
+                        }
+                        console.log("filter", filterObject)
+
                         if (details.crossfilterEnabled) {
 
-                            LookerCharts.Utils.toggleCrossfilter({
-                                row:  d.data["taxonomy.sub_sector_level_2"],
-                                values: 'Horizontal'
-                            })
+                            LookerCharts.Utils.toggleCrossfilter(filterObject)
 
                             console.log("details.crossfilters", details.crossfilters)
                                 
