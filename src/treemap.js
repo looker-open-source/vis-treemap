@@ -472,10 +472,7 @@ const vis = {
                         let data = 
                         {
                             
-                            "taxonomy.sub_sector_level_2": "Integrated GRC",
-                            "taxonomy.sub_sector_level_3": "Horizontal",
-                            "taxonomy.sub_sector_level_4": null,
-                            "account.total_revenue": 15213.7
+                            "taxonomy.sub_sector_level_2": "Integrated GRC"
                         }
 
                         let vals = ['1','2','3']
