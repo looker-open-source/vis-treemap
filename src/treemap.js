@@ -470,10 +470,13 @@ const vis = {
                         // console.log("filter", filterObject)
 
                         if (details.crossfilterEnabled) {
+                            
+                            //Remove
+                            let filter = d.data.splice(0, 2);
 
-                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"]})
+                            LookerCharts.Utils.toggleCrossfilter({row: filter})
 
-                            console.log("details.crossfilters", details.crossfilters)
+                            console.log("filter", filter)
                                 
                             zoom(d)
 
