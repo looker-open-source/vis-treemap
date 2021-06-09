@@ -413,15 +413,15 @@ const vis = {
                         console.log("d.row", d3.event)
                         
                         let filter = ''
-                        if(d.data.depth === 4)
+                        if(d.depth === 4)
                         {
                             filter = d.data["taxonomy.sub_sector_level_2"] 
                         }
-                        if(d.data.depth === 3)
+                        if(d.depth === 3)
                         {
                             filter = d.data["taxonomy.sub_sector_level_3"] 
                         }
-                        if(d.data.depth === 2)
+                        if(d.depth === 2)
                         {
                             filter = d.data["taxonomy.sub_sector_level_4"] 
                         }
