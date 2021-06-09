@@ -261,11 +261,40 @@ const vis = {
                 if (config["sizeBy"] === "count_of_rows") {
                     cell_string = "1";
                 } else {
-                    cell_string = getTooltip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
+                    cell_string = getBoxTip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
                 }
             } 
 
             return cell_string
+        }
+
+        const getBoxTip = function(d) {
+            var tiptext = "";
+            if (d.height === 0) {
+                for (var prop in hierarchy_names) {
+                    var metadata = d.data.metadata[hierarchy_names[prop]];
+                    if(metadata.rendered != null){
+                        tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
+                    }
+                    
+                }
+                tiptext += '<br>'
+                for (var measure in measures) {
+                    var metadata = d.data.metadata[measure_names[measure]];
+                    if(metadata.rendered != null){
+                        tiptext += "<p><em>" + metadata.label + ":</em></p>";
+                    }                    
+                }
+            } else {
+                if(d.data.key == "null"){
+                    tiptext += "";
+                }else{
+                    tiptext += d.data.key;
+                }
+                    
+            };
+            
+            return tiptext;
         }
 
         const getTooltip = function(d) {
