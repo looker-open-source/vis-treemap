@@ -433,8 +433,9 @@ const vis = {
                         }
 
                         if (details.crossfilterEnabled) {                            
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
+                            
                             zoom(d)
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
                         } else {
                             zoom(d)
                         } 
@@ -465,7 +466,7 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                         }
-                        
+
                         let data = {
                             [filterLevel] : { value: d.data[filterLevel]}
                         }
