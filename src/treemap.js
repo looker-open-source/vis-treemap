@@ -432,13 +432,12 @@ const vis = {
                             [filterLevel] : { value: d.data[filterLevel]}
                         }
 
-                        if (details.crossfilterEnabled) {                            
-                            
-                            zoom(d)
+                        if (details.crossfilterEnabled) {   
+                            //zoom(d)
                             LookerCharts.Utils.toggleCrossfilter({row: data})
-                        } else {
-                            zoom(d)
                         } 
+
+                        zoom(d)
                     })
                         
 
@@ -450,34 +449,7 @@ const vis = {
                     .attr("fill", '#bbbbbb')
                     .attr("class", "foreignobj")
                     .attr("pointer-events", "none")
-                    .attr("white-space", "nowrap")
-                    .on("click", function (d) {
-
-                        let filterLevel = ''
-                        if(d.depth === 4)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_2"
-                        }
-                        if(d.depth === 3)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                        }
-                        if(d.depth === 2)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_4"
-                        }
-
-                        let data = {
-                            [filterLevel] : { value: d.data[filterLevel]}
-                        }
-
-                        if (details.crossfilterEnabled) {                            
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
-                            zoom(d)
-                        } else {
-                            zoom(d)
-                        } 
-                    })
+                    .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
                     .attr("class", "textdiv")
