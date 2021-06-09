@@ -485,7 +485,7 @@ const vis = {
                             //Remove
                             let filter = delete d.data;
 
-                            LookerCharts.Utils.toggleCrossfilter({row: d.data, values: vals})
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
 
                             console.log("filter", filter)
                                 
