@@ -471,7 +471,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {
 
-                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"][filterLevel]})
+                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"]})
 
                             console.log("details.crossfilters", details.crossfilters)
                                 
