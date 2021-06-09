@@ -430,12 +430,15 @@ const vis = {
                         
                         if (details.crossfilterEnabled) {
 
-                                console.log("details.crossfilters", details.crossfilters)
+                            LookerCharts.Utils.toggleCrossfilter({
+                                row:  'Sub Sector Level 3',
+                                values: 'Horizontal'
+                            })
 
-                                LookerCharts.Utils.toggleCrossfilter({
-                                      row:  d.data[0]
-                                })
-                                zoom(d)
+                            console.log("details.crossfilters", details.crossfilters)
+                                
+                            zoom(d)
+
                         } else {
                             zoom(d)
                         } 
