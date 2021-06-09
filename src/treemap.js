@@ -450,16 +450,8 @@ const vis = {
                     .attr("class", "foreignobj")
                     .attr("pointer-events", "none")
                     .attr("white-space", "nowrap")
-                  .append("xhtml:div")
-                    .html(d => getCellText(d))
-                    .attr("class", "textdiv")
                     .on("click", function (d) {
-                        console.log("d", d)
-                        console.log("d.row", d3.event)
-                        console.log("details.crossfilterEnabled", details.crossfilterEnabled)
-                        console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
-                        console.log("d.row", d3.event)
-                        
+
                         let filterLevel = ''
                         if(d.depth === 4)
                         {
@@ -473,9 +465,7 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                         }
-
-                        console.log("filterLevel", filterLevel)
-
+                        
                         let data = {
                             [filterLevel] : { value: d.data[filterLevel]}
                         }
@@ -487,6 +477,10 @@ const vis = {
                             zoom(d)
                         } 
                     })
+                  .append("xhtml:div")
+                    .html(d => getCellText(d))
+                    .attr("class", "textdiv")
+                    
             
                 function zoom(d) {
                     if (d.depth === 0) {
