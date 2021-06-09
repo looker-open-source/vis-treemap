@@ -1,7 +1,12 @@
 rect:hover {
-    border: 1px solid black;
+    background: #e1e1e1;
+    border: 1px solid #d0d0d0;
 }
 
+rect {
+    background: #eee;
+    border: 1px solid transparent;
+}
 
 #tooltip {
     position: absolute;
