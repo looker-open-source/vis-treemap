@@ -42,6 +42,7 @@ rect:hover {
     pointer-events: none;
     overflow: none;
     white-space: nowrap;
+    word-wrap: break-word;
 }
 
 .foreignobj{
