@@ -472,8 +472,7 @@ const vis = {
                         let data = 
                         {
                             
-                            filed: "taxonomy.sub_sector_level_2",
-                            values: ['Integrated GRC']
+                            "taxonomy.sub_sector_level_2": ['Integrated GRC']
                         }
 
                         let vals = ['1','2','3']
