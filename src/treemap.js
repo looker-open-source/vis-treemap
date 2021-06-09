@@ -407,7 +407,7 @@ const vis = {
 
                     .on("click", function (d) {
                         console.log("details.crossfilterEnabled", details.crossfilterEnabled)
-                        console.log("d.row", d.row)
+                        console.log("d.row", d)
                         console.log("d.row", d3.event)
                         if (details.crossfilterEnabled) {
                                 LookerCharts.Utils.toggleCrossfilter({
