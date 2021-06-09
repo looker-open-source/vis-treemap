@@ -429,7 +429,7 @@ const vis = {
                         console.log("filter", filter)
 
                         let filterObject = {
-                            row:  d.data["taxonomy.sub_sector_level_2"],
+                            row:  d.data.taxonomy.sub_sector_level_2,
                             values: ['Horizontal']
                         }
                         console.log("filter", filterObject)
