@@ -469,10 +469,8 @@ const vis = {
                         // }r
                         // console.log("filter", filterObject)
 
-                        let data = 
-                        {
-                            
-                            "taxonomy.sub_sector_level_2": ['Integrated GRC']
+                        let data = {
+                            "taxonomy.sub_sector_level_2": { value: 'Test'}
                         }
 
                         let vals = ['1','2','3']
