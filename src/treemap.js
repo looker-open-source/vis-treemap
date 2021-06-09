@@ -428,15 +428,50 @@ const vis = {
 
                         console.log("filter", filter)
 
-                        let filterObject = {
-                            row:  d.data.taxonomy.sub_sector_level_2,
-                            values: ['Horizontal']
-                        }
+
+                        // {
+                        //     "metadata": {
+                        //         "taxonomy.sub_sector_level_2": {
+                        //             "label": "Sub Sector Level 2",
+                        //             "rendered": "Compliance"
+                        //         },
+                        //         "taxonomy.sub_sector_level_3": {
+                        //             "label": "Sub Sector Level 3",
+                        //             "rendered": "QEHS Compliance"
+                        //         },
+                        //         "taxonomy.sub_sector_level_4": {
+                        //             "label": "Sub Sector Level 4",
+                        //             "rendered": "Integrated QEHS Compliance"
+                        //         },
+                        //         "account.total_revenue": {
+                        //             "label": "Total Revenue",
+                        //             "rendered": "$4,968",
+                        //             "links": [
+                        //                 {
+                        //                     "label": "Show All $4,968",
+                        //                     "label_prefix": "Show All",
+                        //                     "label_value": "$4,968",
+                        //                     "url": "/explore/razorhorse_xplenty/taxonomy_account?fields=account.account_id,account.name,account.billing_country,account.founded,account.revenue_usd,account.revenue_growth,account.arr_usd,account.retention,account.rule_of_50,account.owner_type&f[taxonomy_account.eligible_for_rollup]=Yes&f[taxonomy.sector]=%25GRC%25%2C%25Governance%25%2C%25Risk%25&f[taxonomy.sub_sector_level_2]=Compliance&f[taxonomy.sub_sector_level_3]=QEHS+Compliance&f[taxonomy.sub_sector_level_4]=Integrated+QEHS+Compliance&f[account.name]=&f[account.period_quality]=&f[account.region]=&f[opportunity.bog_result]=NULL&limit=500",
+                        //                     "type": "measure_default"
+                        //                 }
+                        //             ]
+                        //         }
+                        //     },
+                        //     "taxonomy.sub_sector_level_2": "Compliance",
+                        //     "taxonomy.sub_sector_level_3": "QEHS Compliance",
+                        //     "taxonomy.sub_sector_level_4": "Integrated QEHS Compliance",
+                        //     "account.total_revenue": 4967.7
+                        // }
+
+                        // let data = {
+                        //     "taxonomy.sub_sector_level_2": "Compliance",
+
+                        // }
                         console.log("filter", filterObject)
 
                         if (details.crossfilterEnabled) {
 
-                            LookerCharts.Utils.toggleCrossfilter(filterObject)
+                            LookerCharts.Utils.toggleCrossfilter({row: d.data["metadata"]})
 
                             console.log("details.crossfilters", details.crossfilters)
                                 
