@@ -254,7 +254,7 @@ const vis = {
                     if(d.data.key == "null"){
                         cell_string = "";
                     }else{
-                        cell_string = "<div class'navigation'>&#187; "+ d.data.key + " (" + display_value + ")</div>";
+                        cell_string = "<div class='navigation'>&#187; "+ d.data.key + " (" + display_value + ")</div>";
                     }                    
                 }
             } else if (d.height === 0) {
