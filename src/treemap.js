@@ -12,13 +12,6 @@ const default_options = {
     label: "Show Sub Headers",
     default: "true"
   },
-  // TODO: Implement Color By Cell Value
-  // takeColorFromCellValue: {
-  //   section: "Data",
-  //   type: "boolean",
-  //   label: "Color By Cell Value",
-  //   default: "true"
-  // },
   cellColor: {
     section: "Data",
     type: "array",
@@ -413,6 +406,9 @@ const vis = {
                     // .on("click", zoom)
 
                     .on("click", function (d) {
+                        console.log("details.crossfilterEnabled", details.crossfilterEnabled)
+                        console.log("d.row", d.row)
+                        console.log("d.row", d3.event)
                         if (details.crossfilterEnabled) {
                                 LookerCharts.Utils.toggleCrossfilter({
                                       row: d.row,
