@@ -57,7 +57,7 @@ rect:hover {
 .foreignobj{
     border: 1px solid transparent;
     padding-left: 5px;
-    padding-top: 2px;
+    padding-top: 0px;
     margin-top: 5px;
     word-wrap: break-word;
 }
