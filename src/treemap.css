@@ -44,13 +44,7 @@ rect:hover {
     font-size: 11px;
     pointer-events: none;
     overflow: none;    
-    word-wrap: break-word;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    position: absolute;
-    
+    word-wrap: break-word;    
 }
 .textdiv1 {
     border: 1px solid transparent;
@@ -59,11 +53,6 @@ rect:hover {
     pointer-events: none;
     overflow: none;    
     word-wrap: break-word;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    position: absolute;
     
 }
 .textdiv2 {
