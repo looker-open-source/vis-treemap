@@ -425,8 +425,7 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                         }
-
-                        console.log("filterLevel", filterLevel)
+                     
 
                         let data = {
                             [filterLevel] : { value: d.data[filterLevel]}
@@ -452,7 +451,7 @@ const vis = {
                     .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", "textdiv")
+                    .attr("class", "textdiv"+ d.depth)
                     
             
                 function zoom(d) {
