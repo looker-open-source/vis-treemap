@@ -38,7 +38,20 @@ rect:hover {
     font-size: 12px;
     line-height: 15px;
 }
-
+.textdiv0 {
+    border: 1px solid transparent;
+    font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    pointer-events: none;
+    overflow: none;    
+    word-wrap: break-word;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    
+}
 .textdiv1 {
     border: 1px solid transparent;
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
