@@ -252,7 +252,7 @@ const vis = {
                 }
             } else if (d.height === 0) {
                 if (config["sizeBy"] === "count_of_rows") {
-                    cell_string = "1";
+                    cell_string = "";
                 } else {
                     cell_string = getBoxTip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
                 }
@@ -267,7 +267,7 @@ const vis = {
                 for (var prop in hierarchy_names) {
                     var metadata = d.data.metadata[hierarchy_names[prop]];
                     if(metadata.rendered != null){
-                        tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
+                        //tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
                     }
                     
                 }
