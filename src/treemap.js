@@ -264,18 +264,22 @@ const vis = {
         const getBoxTip = function(d) {
             var tiptext = "";
             if (d.height === 0) {
+                let p = 0
                 for (var prop in hierarchy_names) {
                     var metadata = d.data.metadata[hierarchy_names[prop]];
-                    if(metadata.rendered != null){
-                        //tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
+                    if( p > 1){
+                        if(metadata.rendered != null){
+                            tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
+                        }
                     }
                     
+                    p++
                 }
                 tiptext += '<br>'
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
                     if(metadata.rendered != null){
-                        //tiptext += "<p><em>" + metadata.label + ":</em></p>";
+                        tiptext += "<p><em>" + metadata.label + ":</em></p>";
                     }                    
                 }
             } else {
