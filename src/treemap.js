@@ -422,7 +422,7 @@ const vis = {
                         let filterLevel = ''
                         if(d.depth === 4)
                         {
-                            filterLevel = "taxonomy.sub_sector_level_2"
+                            filterLevel = "taxonomy.sub_sector_level_3"
                         }
                         if(d.depth === 3)
                         {
