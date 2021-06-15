@@ -282,7 +282,7 @@ const vis = {
                 if(d.data.key == "null"){
                     tiptext += "";
                 }else{
-                    //tiptext += d.data.key;
+                    tiptext += d.data.key;
                 }
                     
             };
