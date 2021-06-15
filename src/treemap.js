@@ -267,7 +267,7 @@ const vis = {
                 for (var prop in hierarchy_names) {
                     var metadata = d.data.metadata[hierarchy_names[prop]];
                     if(metadata.rendered != null){
-                        tiptext += " " + metadata.label + ""; //<p><em>" + metadata.label + ":</em> 
+                        tiptext += " " + metadata.rendered + ""; //<p><em>" + metadata.label + ":</em> 
                     }
                     
                 }
