@@ -304,7 +304,7 @@ const vis = {
                 for (var measure in measures) {
                     var metadata = d.data.metadata[measure_names[measure]];
                     if(metadata.rendered != null){
-                        tiptext += "<p><em>" + metadata.label + ":</em> <b>" + metadata.rendered + "</b></p>";
+                        tiptext += "<p><em>" + metadata.label + ":</em> <br><b>" + metadata.rendered + "</b></p>";
                     }                    
                 }
             } else {
