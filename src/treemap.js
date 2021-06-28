@@ -443,7 +443,7 @@ const vis = {
                             LookerCharts.Utils.toggleCrossfilter({row: data})
                         } 
 
-                        zoom(d)
+                        //zoom(d)
                     })
                         
 
