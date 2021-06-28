@@ -451,10 +451,9 @@ const vis = {
                         // if(d.depth === 0)
                         // {
                         //     zoom(d)
-                        // }                    
-
+                        // }
+                     
                         zoom(d)
-                        
                     })
                         
 
@@ -469,9 +468,12 @@ const vis = {
                     .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", d => "textdiv")
+                    .attr("class", d => "textdivCentered")
+                    if(d.depth > 1 ){
+                        treemapCells.attr("class", d => "textdivCentered")
+                    }
                     
-            
+                                
                 function zoom(d) {
                     if (d.depth === 0) {
                         if (config.breadcrumbs.length === 0) {
