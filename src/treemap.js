@@ -472,9 +472,8 @@ const vis = {
                     .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", (d) => "textdiv")
-                    .attr("class", d => classCentered)
-                   
+                    .attr("class", (d) => "textdiv", classCentered)
+                 
                     
                                 
                 function zoom(d) {
