@@ -491,7 +491,7 @@ const vis = {
                 }
             }
 
-            //displayChart(root);
+            displayChart(root);
         }
         
         createTreemap(vis_data);
