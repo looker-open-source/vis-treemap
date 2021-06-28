@@ -469,8 +469,8 @@ const vis = {
                   .append("xhtml:div")
                     .html(d => getCellText(d))
                     .attr("class", d => "textdivCentered")
-                    if(d.depth > 1 ){
-                        treemapCells.attr("class", d => "textdivCentered")
+                    if(d.depth === 0 ){
+                        treemapCells.attr("class", d => "textdiv")
                     }
                     
                                 
