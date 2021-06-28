@@ -447,6 +447,10 @@ const vis = {
                         {
                             zoom(d)
                         }
+                        if(d.depth === 0)
+                        {
+                            zoom(d)
+                        }
                      
 
                         //zoom(d)
