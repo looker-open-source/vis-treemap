@@ -457,7 +457,7 @@ const vis = {
                     })
                         
 
-                treemapCells.append("foreignObject")
+                let c = treemapCells.append("foreignObject")
                     .attr("x", d => d.x0 + 3)
                     .attr("y", d => d.y0)
                     .attr("width", d => Math.max(0, d.x1 - d.x0 - 3))
@@ -468,9 +468,10 @@ const vis = {
                     .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", d => "textdivCentered")
-                    if(d.depth === 0 ){
-                        treemapCells.attr("class", d => "textdiv")
+                    .attr("class", d => "textdiv")
+
+                    if(d.depth !== 0 ){
+                        c.attr("class", d => "textdivCentered")
                     }
                     
                                 
