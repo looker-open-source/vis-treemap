@@ -457,7 +457,7 @@ const vis = {
                     })
                 
                 let classCentered = ''
-                if(d.depth !== 0 ){
+                if(d.depth > 1 ){
                     classCentered = 'textdivCentered'
                 }
 
