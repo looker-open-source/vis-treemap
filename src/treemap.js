@@ -442,6 +442,12 @@ const vis = {
                             //zoom(d)
                             LookerCharts.Utils.toggleCrossfilter({row: data})
                         } 
+                        
+                        if(d.depth === 1)
+                        {
+                            zoom(d)
+                        }
+                     
 
                         //zoom(d)
                     })
