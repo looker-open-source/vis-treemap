@@ -472,7 +472,7 @@ const vis = {
 
                             root = treemap(d3.hierarchy(current_branch, d => d.values)
                                 .sum(d => getSize(d)))
-                            displayChart(root);
+                            //displayChart(root);
                         }
                     } else {
                         while (d.depth > 1) {
@@ -485,7 +485,7 @@ const vis = {
                                 .sum(d => getSize(d))
                             );
                             
-                            displayChart(root);                            
+                            //displayChart(root);                            
                         }
                     }
                 }
