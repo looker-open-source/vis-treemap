@@ -4,7 +4,7 @@
   "description": "treemap vis for Looker",
   "main": "treemap.js",
   "repository": "https://github.com/rodram/vis-treemap",
-  "author": "jonwalls@google.com - forked by Rodrigo Ramos",
+  "author": "forked by Rodrigo Ramos",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^3.6.0",

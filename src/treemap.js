@@ -413,6 +413,7 @@ const vis = {
                     // .on("click", zoom)
 
                     .on("click", function (d) {
+
                         console.log("d", d)
                         console.log("d.row", d3.event)
                         console.log("details.crossfilterEnabled", details.crossfilterEnabled)
@@ -443,17 +444,17 @@ const vis = {
                             LookerCharts.Utils.toggleCrossfilter({row: data})
                         } 
                         
-                        if(d.depth === 1)
-                        {
-                            zoom(d)
-                        }
-                        if(d.depth === 0)
-                        {
-                            zoom(d)
-                        }
-                     
+                        // if(d.depth === 1)
+                        // {
+                        //     zoom(d)
+                        // }
+                        // if(d.depth === 0)
+                        // {
+                        //     zoom(d)
+                        // }                    
 
-                        //zoom(d)
+                        zoom(d)
+                        
                     })
                         
 
