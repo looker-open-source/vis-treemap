@@ -462,6 +462,9 @@ const vis = {
                     })
                 
                 let classCentered = ''
+                    
+                console.log("d.depth", d.depth, getCellText(d))
+
                 if(d.depth > 1 ){
                     classCentered = 'textdivCentered'
                 }
