@@ -154,7 +154,7 @@ const vis = {
         const chartCentreY = bounds.y + (bounds.height / 2);
 
         const headerColor = defaultHeaderColor;
-        const number_of_headers = 3;
+        const number_of_headers = 2;
 
         const dimensions = queryResponse.fields.dimension_like;
         const measures = queryResponse.fields.measure_like;
