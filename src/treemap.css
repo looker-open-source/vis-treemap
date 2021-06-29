@@ -49,7 +49,7 @@ rect:hover {
     
 }
 
-.foreignObject .textdiv:hover {
+.textdiv:hover {
     border: 1px solid #000;
     stroke: black;
 }
