@@ -369,7 +369,9 @@ const vis = {
                     .attr("stroke", defaultCellColor)
 
                     .on("mouseover", function(d) {
+
                         console.log('mouseover', d3.event)
+
                         //Get this bar's x/y values, then augment for the tooltip
                         var top_left_x = parseFloat(d3.select(this).attr("x"))
                         var top_left_y = parseFloat(d3.select(this).attr("y"))
@@ -395,6 +397,9 @@ const vis = {
 
                         //Show the tooltip
                         d3.select("#tooltip").classed("hidden", false);
+
+                        d3.select("#tooltip").classed("hidden", false);
+
                     })
                     .on("mousemove", function() {
                         var xPosition = d3.event.pageX < chartCentreX ? d3.event.pageX : d3.event.pageX - 210
@@ -472,6 +477,8 @@ const vis = {
                     .attr("white-space", "nowrap")                    
                   .append("xhtml:div")
                     .html(d => getCellText(d))
+                    .attr("width", d => Math.max(0, d.x1 - d.x0 - 3))
+                    .attr("height", d => Math.max(0, d.y1 - d.y0))
                     .attr("class", (d) => "textdiv", classCentered)
                  
                     
