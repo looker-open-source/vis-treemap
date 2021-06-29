@@ -363,7 +363,7 @@ const vis = {
                 treemapCells.append("rect")
                     .attr("x", d => d.x0)
                     .attr("y", d => d.y0)
-                    .attr("width", d => Math.max(0, d.x1 - d.x0)-6)
+                    .attr("width", d => Math.max(0, d.x1 - d.x0)-5)
                     .attr("height", d => Math.max(0, d.y1 - d.y0))
                     .attr("fill", d => getColor(d))
                     //.attr("stroke", defaultCellColor)
