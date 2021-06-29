@@ -368,7 +368,7 @@ const vis = {
                     .attr("fill", d => getColor(d))
                     //.attr("stroke", defaultCellColor)
                     .style('stroke', 'black')
-                   
+                    .style('stroke-width', '0')
                     .on("mouseover", function(d) {
 
                         console.log('mouseover', d3.event)
@@ -402,8 +402,8 @@ const vis = {
                         d3.select("#tooltip").classed("hidden", false);
 
                         d3.select(this).style('stroke', 'white');
-                        d3.select(this).style('stroke-width', '10');
-                        
+                        d3.select(this).style('stroke-width', '5');
+
                     })
                     .on("mousemove", function() {
                         var xPosition = d3.event.pageX < chartCentreX ? d3.event.pageX : d3.event.pageX - 210
@@ -420,7 +420,7 @@ const vis = {
                         //Hide the tooltip
                         d3.select("#tooltip").classed("hidden", true);
                         d3.select(this).style('stroke', 'black');
-                        
+                        d3.select(this).style('stroke-width', '0');
 
 
                     })
