@@ -401,8 +401,8 @@ const vis = {
 
                         d3.select("#tooltip").classed("hidden", false);
 
-                        d3.select(this).style('stroke', '#999999');
-                        d3.select(this).style('stroke-width', '7');
+                        d3.select(this).style('stroke', '#b3b3b3');
+                        d3.select(this).style('stroke-width', '5');
 
                     })
                     .on("mousemove", function() {
