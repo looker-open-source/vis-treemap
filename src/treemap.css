@@ -53,12 +53,8 @@ rect:hover {
 }
 
 .textdivMenu {
-    border: 1px solid transparent;
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    pointer-events: none;
-    overflow: none;    
-    word-wrap: break-word;
+    font-size: 12px;
     text-align: center;
     color: #1a1a1a;
 }
