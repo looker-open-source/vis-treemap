@@ -3,7 +3,7 @@ const d3 = require('./d3loader')
 import './treemap.css';
 
 const defaultHeaderColor = "#edd0ce";
-const defaultCellColor = "white";
+const defaultCellColor = "#b3b3b3";
 
 const default_options = {
   showSubHeaders: {
@@ -401,7 +401,7 @@ const vis = {
 
                         d3.select("#tooltip").classed("hidden", false);
 
-                        d3.select(this).style('stroke', '#b3b3b3');
+                        d3.select(this).style('stroke', 'white');
                         d3.select(this).style('stroke-width', '5');
 
                     })
