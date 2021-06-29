@@ -361,7 +361,7 @@ const vis = {
                     .enter()
 
                 treemapCells.append("rect")
-                    .attr("x", d => d.x0 + 2)
+                    .attr("x", d => d.x0 + 6)
                     .attr("y", d => d.y0)
                     .attr("width", d => Math.max(0, d.x1 - d.x0))
                     .attr("height", d => Math.max(0, d.y1 - d.y0))
