@@ -42,12 +42,14 @@ rect:hover {
 .textdiv {
     border: 1px solid transparent;
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     pointer-events: none;
     overflow: none;    
     word-wrap: break-word;
     position: relative;
     text-align: center;
+    top: 50%;
+    color: #1a1a1a;
 }
 
 .textdiv:hover {

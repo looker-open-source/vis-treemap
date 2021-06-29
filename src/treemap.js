@@ -381,7 +381,6 @@ const vis = {
                         var pageX = d3.event.pageX
                         var pageY = d3.event.pageY
                         // var container_y = element.attr('y')
-
                         // console.log('coords', top_left_x, top_left_y, container_x, element, this, d3.event)
 
                         var xPosition = pageX;
@@ -397,10 +396,7 @@ const vis = {
                             .html(getTooltip(d));
 
                         //Show the tooltip
-                        d3.select("#tooltip").classed("hidden", false);
-
-                        d3.select("#tooltip").classed("hidden", false);
-
+                        d3.select("#tooltip").classed("hidden", false)
                         d3.select(this).style('stroke', 'white');
                         d3.select(this).style('stroke-width', '6');
 
@@ -412,8 +408,7 @@ const vis = {
                         if (xPosition )
                         d3.select('#tooltip')
                             .style('left', xPosition + 'px')
-                            .style('top', yPosition + 'px')
-                        
+                            .style('top', yPosition + 'px')                       
                         
                     })
                     .on("mouseout", function() {
@@ -421,12 +416,7 @@ const vis = {
                         d3.select("#tooltip").classed("hidden", true);
                         d3.select(this).style('stroke', 'black');
                         d3.select(this).style('stroke-width', '0');
-
-
                     })
-
-                    // .on("click", zoom)
-
                     .on("click", function (d) {
 
                         console.log("d", d)
