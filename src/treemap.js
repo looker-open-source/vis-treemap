@@ -326,6 +326,17 @@ const vis = {
             return tiptext;
         }
 
+        const getDivName = function(d){
+            let divName;
+            if(d.depth === 0){
+                divName = "textdivMenu"
+            }
+            else{
+                divName = "textdiv"
+            }
+            return divName
+        }
+
         const createTreemap = function(data) {
             var nested_data = d3.nest();
             dimensions.forEach(dim => 
@@ -483,7 +494,7 @@ const vis = {
                     .attr("white-space", "nowrap")                            
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", (d) => classCentered)
+                    .attr("class", (d) => getDivName(d))
                  
                     
                                 
