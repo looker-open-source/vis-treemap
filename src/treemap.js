@@ -402,6 +402,8 @@ const vis = {
                         d3.select("#tooltip").classed("hidden", false);
 
                         d3.select(this).style('stroke', 'white');
+                        d3.select(this).style('stroke-width', '10');
+                        
                     })
                     .on("mousemove", function() {
                         var xPosition = d3.event.pageX < chartCentreX ? d3.event.pageX : d3.event.pageX - 210
@@ -418,6 +420,9 @@ const vis = {
                         //Hide the tooltip
                         d3.select("#tooltip").classed("hidden", true);
                         d3.select(this).style('stroke', 'black');
+                        
+
+
                     })
 
                     // .on("click", zoom)
