@@ -367,7 +367,8 @@ const vis = {
                     .attr("height", d => Math.max(0, d.y1 - d.y0))
                     .attr("fill", d => getColor(d))
                     .attr("stroke", defaultCellColor)
-
+                    .style('stroke', 'black')
+                    .style('fill', '#945f04')
                     .on("mouseover", function(d) {
 
                         console.log('mouseover', d3.event)
@@ -474,12 +475,13 @@ const vis = {
                     .attr("fill", '#bbbbbb')
                     .attr("class", "foreignobj")
                     .attr("pointer-events", "none")
-                    .attr("white-space", "nowrap")                    
+                    .attr("white-space", "nowrap")         
+                    .attr("fill", function(d) {
+                        return "rgb(0, 0, " + (d * 10) + ")";
+                   })           
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("width", d => Math.max(0, d.x1 - d.x0 - 3))
-                    .attr("height", d => Math.max(0, d.y1 - d.y0))
-                    .attr("class", (d) => "textdiv", classCentered)
+                    .attr("class", (d) => "textdiv")
                  
                     
                                 
