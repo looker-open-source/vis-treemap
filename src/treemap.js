@@ -476,7 +476,7 @@ const vis = {
                     
                 console.log("d.depth", d.depth, getCellText(d))
 
-                if(d.depth === 0 ){
+                if(d.depth === 0 || d.depth === 1){
                     classCentered = 'textdivMenu'
                 }
                 else{

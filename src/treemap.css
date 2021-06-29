@@ -52,6 +52,17 @@ rect:hover {
     color: #1a1a1a;
 }
 
+.textdivMenu {
+    border: 1px solid transparent;
+    font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    pointer-events: none;
+    overflow: none;    
+    word-wrap: break-word;
+    text-align: center;
+    color: #1a1a1a;
+}
+
 .textdiv:hover {
     border: 1px solid #000;
     stroke: black;
