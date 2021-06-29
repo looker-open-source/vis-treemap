@@ -465,8 +465,11 @@ const vis = {
                     
                 console.log("d.depth", d.depth, getCellText(d))
 
-                if(d.depth > 1 ){
-                    classCentered = 'textdivCentered'
+                if(d.depth === 0 ){
+                    classCentered = 'textdivMenu'
+                }
+                else{
+                    classCentered = "textdiv"
                 }
 
                 treemapCells.append("foreignObject")
@@ -480,7 +483,7 @@ const vis = {
                     .attr("white-space", "nowrap")                            
                   .append("xhtml:div")
                     .html(d => getCellText(d))
-                    .attr("class", (d) => "textdiv")
+                    .attr("class", (d) => classCentered)
                  
                     
                                 
