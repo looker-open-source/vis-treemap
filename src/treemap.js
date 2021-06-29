@@ -412,11 +412,12 @@ const vis = {
                             .style('left', xPosition + 'px')
                             .style('top', yPosition + 'px')
                         
-                        d3.select(this).style('stroke', 'black');
+                        
                     })
                     .on("mouseout", function() {
                         //Hide the tooltip
                         d3.select("#tooltip").classed("hidden", true);
+                        d3.select(this).style('stroke', 'black');
                     })
 
                     // .on("click", zoom)
