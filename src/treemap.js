@@ -31,6 +31,8 @@ const default_options = {
   },
 };
 
+const timeout = null;
+
 //Temp
 // const dumpToConsole = function(message, obj) {
 //     console.log(message, JSON.stringify(obj, null, 2));
@@ -436,42 +438,62 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    .on("dblclick", d => { alert("node was double clicked") zoom(d)})
+                    .on("dblclick", d => { 
+
+                        clearTimeout(timeout);
+    
+                        console.clear();
+                        console.log("node was double clicked", new Date());
+                        
+                        alert("node was double clicked") 
+                        zoom(d)
+                    })
 
                     .on('click', d => {
                         console.log('click d.data', d.data)
                         console.log('dimensions', dimensions)
-                        if (details.crossfilterEnabled) {
-                          let cross_filter_dimension  // dimension to cross-filter
-                          let pseudoRow = {}          // fake 'row' object to send to cross filter api
-  
-                          // Test whether use has clicked on a 'heading' or a 'tile'
-                          // to decide whether to cross-filter on first or second dimension 
-                          if ('key' in d.data && 'values' in d.data) {
-                            cross_filter_dimension = dimensions[0].name
-                            pseudoRow[cross_filter_dimension] = { value: d.data.key }
-                          } else {
-                            cross_filter_dimension = dimensions[1].name
-                            pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
-                          }
-                          console.log('pseudoRow', pseudoRow)
-                          
-                          LookerCharts.Utils.toggleCrossfilter({
-                              row: pseudoRow,
-                              event: d3.event,
-                          });
-                        } else {
-                          let event = {
-                            metaKey: d3.event.metaKey,
-                            pageX: d3.event.pageX,
-                            pageY: d3.event.pageY - window.pageYOffset
-                          }
-                
-                          LookerCharts.Utils.openDrillMenu({
-                            links: d.links,
-                            event: event
-                          })          
-                        }
+
+                            
+                        timeout = setTimeout(function() {
+                            console.clear();
+                            console.log("node was single clicked", new Date());
+
+                            if (details.crossfilterEnabled) {
+                                let cross_filter_dimension  // dimension to cross-filter
+                                let pseudoRow = {}          // fake 'row' object to send to cross filter api
+        
+                                // Test whether use has clicked on a 'heading' or a 'tile'
+                                // to decide whether to cross-filter on first or second dimension 
+                                if ('key' in d.data && 'values' in d.data) {
+                                  cross_filter_dimension = dimensions[0].name
+                                  pseudoRow[cross_filter_dimension] = { value: d.data.key }
+                                } else {
+                                  cross_filter_dimension = dimensions[1].name
+                                  pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
+                                }
+                                console.log('pseudoRow', pseudoRow)
+                                
+                                LookerCharts.Utils.toggleCrossfilter({
+                                    row: pseudoRow,
+                                    event: d3.event,
+                                });
+                              } else {
+                                let event = {
+                                  metaKey: d3.event.metaKey,
+                                  pageX: d3.event.pageX,
+                                  pageY: d3.event.pageY - window.pageYOffset
+                                }
+                      
+                                LookerCharts.Utils.openDrillMenu({
+                                  links: d.links,
+                                  event: event
+                                })          
+                              }
+
+
+                        }, 300)
+
+                       
                     })
                     
                     .on('contextmenu', d => {
