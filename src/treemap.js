@@ -237,7 +237,7 @@ const vis = {
 
             console.log("getCellText", d)
             
-            if (d.depth === 0) {
+            if (d.depth === 0 && config.showSubHeaders) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
                     cell_string = "Top Level. Click on cells to zoom IN, or click on this bar to zoom OUT."; 
@@ -251,7 +251,8 @@ const vis = {
                 }
                 
             } 
-            else if ( d.depth > 0 && config.showSubHeaders) {
+           
+            if ( d.depth === 2 && config.showSubHeaders) {
                 display_value = formatValue(d.value);
                 if (d.data.key == null) {
                     cell_string = '' ;
