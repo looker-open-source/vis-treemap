@@ -417,6 +417,8 @@ const vis = {
                     })
                     
                     .on("dblclick", d => { 
+                        
+                        event.preventDefault()
 
                         clearTimeout(timeout);
     
@@ -427,7 +429,7 @@ const vis = {
                     })
 
                     .on('click', d => {
-       
+                        clearTimeout(timeout);
                         timeout = setTimeout(function() {                           
 
                             let data = ''
