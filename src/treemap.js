@@ -23,7 +23,7 @@ const default_options = {
     type: "array",
     display: "colors",
     label: "Color Palette - Razorhorse",
-    default: ["#aa4336", "#b04f43", "#b4574c", "#b86157", "#bc6960", "#c07169", "#c47b73", "#c8837c", "#cc8c86", "#d09590", "#d59f9b", "#daaaa8"]
+    default: ["#aa4436", "#B2564A", "#BB695E", "#C37C72", "#CC8E86", "#D4A19A", "#DDB4AE", "#E5C6C2", "#EED9D6", "#F6ECEA", "#FFFEFE", "#FFFEFE"]
   },
   breadcrumbs: {
     type: "array",
@@ -416,15 +416,15 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    .on("dblclick", d => { 
+                    // .on("dblclick", d => { 
                         
-                        clearTimeout(timeout);
+                    //     clearTimeout(timeout);
     
-                        LookerCharts.Utils.openDrillMenu({
-                            links: d.links,
-                            event: event
-                        })  
-                    })
+                    //     LookerCharts.Utils.openDrillMenu({
+                    //         links: d.links,
+                    //         event: event
+                    //     })  
+                    // })
 
                     .on('click', d => {
                         clearTimeout(timeout);
