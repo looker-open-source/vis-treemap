@@ -512,6 +512,10 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                         }
+                        if(d.depth === 1)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_2"
+                        }
 
 
                         let data = {
