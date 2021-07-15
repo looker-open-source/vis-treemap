@@ -25,6 +25,7 @@ const default_options = {
   },
 };
 
+//Temp
 // const dumpToConsole = function(message, obj) {
 //     console.log(message, JSON.stringify(obj, null, 2));
 // }
@@ -429,104 +430,110 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    .on("click", function (d) {
-
-                        console.log("d", d)
-                        console.log("d.row", d3.event)
-                        console.log("details.crossfilterEnabled", details.crossfilterEnabled)
-                        console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
-                        console.log("d.row", d3.event)
-                        
-                        let filterLevel = ''
-                        if(d.depth === 4)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                        }
-                        if(d.depth === 3)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                        }
-                        if(d.depth === 2)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_4"
-                        }
-                     
-
-                        let data = {
-                            [filterLevel] : { value: d.data[filterLevel]}
-                        }
-
-                        if (details.crossfilterEnabled) {   
-                            //zoom(d)
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
-                        } 
-                        
-                        // if(d.depth === 1)
-                        // {
-                        //     zoom(d)
-                        // }
-                        // if(d.depth === 0)
-                        // {
-                        //     zoom(d)
-                        // }
-                     
-                        zoom(d)
-                    })
-                
-                let classCentered = ''
-                    
-                console.log("d.depth", d.depth, getCellText(d))
-
-                if(d.depth === 0 || d.depth === 1){
-                    classCentered = 'textdivMenu'
-                }
-                else{
-                    classCentered = "textdiv"
-                }
-
-                treemapCells.append("foreignObject")
-                    .attr("x", d => d.x0 + 3)
-                    .attr("y", d => d.y0)
-                    .attr("width", d => Math.max(0, d.x1 - d.x0 - 3))
-                    .attr("height", d => Math.max(0, d.y1 - d.y0))
-                    .attr("fill", '#bbbbbb')
-                    .attr("class", "foreignobj")
-                    .attr("pointer-events", "none")
-                    .attr("white-space", "nowrap")                            
-                  .append("xhtml:div")
-                    .html(d => getCellText(d))
-                    .attr("class", (d) => getDivName(d))
-                 
-                    
-                                
-                function zoom(d) {
-                    if (d.depth === 0) {
-                        if (config.breadcrumbs.length === 0) {
-                            // zoom cancelled, already at root node
+                    .on('click', d => {
+                        console.log('click d.data', d.data)
+                        console.log('dimensions', dimensions)
+                        if (details.crossfilterEnabled) {
+                          let cross_filter_dimension  // dimension to cross-filter
+                          let pseudoRow = {}          // fake 'row' object to send to cross filter api
+  
+                          // Test whether use has clicked on a 'heading' or a 'tile'
+                          // to decide whether to cross-filter on first or second dimension 
+                          if ('key' in d.data && 'values' in d.data) {
+                            cross_filter_dimension = dimensions[0].name
+                            pseudoRow[cross_filter_dimension] = { value: d.data.key }
+                          } else {
+                            cross_filter_dimension = dimensions[1].name
+                            pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
+                          }
+                          console.log('pseudoRow', pseudoRow)
+                          
+                          LookerCharts.Utils.toggleCrossfilter({
+                              row: pseudoRow,
+                              event: d3.event,
+                          });
                         } else {
-                            config.breadcrumbs.pop();
-                            // zoom up
-                            updateCurrentBranch(nested_data, config.breadcrumbs.slice(0));
+                          let event = {
+                            metaKey: d3.event.metaKey,
+                            pageX: d3.event.pageX,
+                            pageY: d3.event.pageY - window.pageYOffset
+                          }
+                
+                          LookerCharts.Utils.openDrillMenu({
+                            links: d.links,
+                            event: event
+                          })          
+                        }
+                    })
+                    
+                    .on('contextmenu', d => {
+                        if (details.crossfilterEnabled) {
+                          event.preventDefault()
+                          // TODO: this should be based on the sizeBy measure
+                          let measure = measures[0].name
+  
+                          LookerCharts.Utils.openDrillMenu({
+                            links: d.data.metadata[measure].links,
+                            event: event
+                          }) 
+                        }
+                      })
 
-                            root = treemap(d3.hierarchy(current_branch, d => d.values)
-                                .sum(d => getSize(d)))
-                            displayChart(root);
-                        }
-                    } else {
-                        while (d.depth > 1) {
-                            d = d.parent;
-                        }
-                        if (d.data.key != null) {
-                            config.breadcrumbs.push(d.data.key);
-                            // zoom down
-                            root = treemap(d3.hierarchy(d.data, d => d.values)
-                                .sum(d => getSize(d))
-                            );
-                            
-                            displayChart(root);                            
+                
+                    let classCentered = ''
+                        
+                    console.log("d.depth", d.depth, getCellText(d))
+
+                    if(d.depth === 0 || d.depth === 1){
+                        classCentered = 'textdivMenu'
+                    }
+                    else{
+                        classCentered = "textdiv"
+                    }
+
+                    treemapCells.append("foreignObject")
+                        .attr("x", d => d.x0 + 3)
+                        .attr("y", d => d.y0)
+                        .attr("width", d => Math.max(0, d.x1 - d.x0 - 3))
+                        .attr("height", d => Math.max(0, d.y1 - d.y0))
+                        .attr("fill", '#bbbbbb')
+                        .attr("class", "foreignobj")
+                        .attr("pointer-events", "none")
+                        .attr("white-space", "nowrap")                            
+                    .append("xhtml:div")
+                        .html(d => getCellText(d))
+                        .attr("class", (d) => getDivName(d))
+                    
+                        
+                                    
+                    function zoom(d) {
+                        if (d.depth === 0) {
+                            if (config.breadcrumbs.length === 0) {
+                                // zoom cancelled, already at root node
+                            } else {
+                                config.breadcrumbs.pop();
+                                // zoom up
+                                updateCurrentBranch(nested_data, config.breadcrumbs.slice(0));
+
+                                root = treemap(d3.hierarchy(current_branch, d => d.values)
+                                    .sum(d => getSize(d)))
+                                displayChart(root);
+                            }
+                        } else {
+                            while (d.depth > 1) {
+                                d = d.parent;
+                            }
+                            if (d.data.key != null) {
+                                config.breadcrumbs.push(d.data.key);
+                                // zoom down
+                                root = treemap(d3.hierarchy(d.data, d => d.values)
+                                    .sum(d => getSize(d))
+                                );
+                                
+                                displayChart(root);                            
+                            }
                         }
                     }
-                }
             }
 
             displayChart(root);
