@@ -438,15 +438,15 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    .on("dblclick", d => { 
+                    // .on("dblclick", d => { 
 
-                        clearTimeout(timeout);
+                    //     clearTimeout(timeout);
     
-                        // console.clear();
-                        // console.log("node was double clicked", new Date());                        
-                        //alert("node was double clicked") 
-                        zoom(d)
-                    })
+                    //     // console.clear();
+                    //     // console.log("node was double clicked", new Date());                        
+                    //     //alert("node was double clicked") 
+                    //     zoom(d)
+                    // })
 
                     .on('click', d => {
                         // console.log('click d.data', d.data)
@@ -519,7 +519,7 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                             data = {
-                                [filterLevel] : { value: d.data[filterLevel]}
+                                [filterLevel] : { value: d.data.key}
                             }
                         }
                         if(d.depth === 1)
