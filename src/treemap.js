@@ -2,7 +2,7 @@ const d3 = require('./d3loader')
 
 import './treemap.css';
 
-const defaultHeaderColor = "#edd0ce";
+const defaultHeaderColor = "#f0f0f0";
 const defaultCellColor = "#b3b3b3";
 
 const default_options = {
@@ -363,7 +363,7 @@ const vis = {
 
         const getDivName = function(d){
             let divName;
-            if(d.depth === 0 || d.depth === 1 || d.depth === 2){
+            if(d.depth === 0 || d.depth === 1 || d.depth === 2 || d.depth === 3){
                 divName = "textdivMenu"
             }
             else{
