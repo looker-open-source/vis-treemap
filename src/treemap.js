@@ -391,7 +391,7 @@ const vis = {
                     .style('stroke-width', '0')
                     .on("mouseover", function(d) {
 
-                        console.log('mouseover', d3.event)
+                        // console.log('mouseover', d3.event)
 
                         //Get this bar's x/y values, then augment for the tooltip
                         var top_left_x = parseFloat(d3.select(this).attr("x"))
@@ -442,10 +442,9 @@ const vis = {
 
                         clearTimeout(timeout);
     
-                        console.clear();
-                        console.log("node was double clicked", new Date());
-                        
-                        alert("node was double clicked") 
+                        // console.clear();
+                        // console.log("node was double clicked", new Date());                        
+                        //alert("node was double clicked") 
                         zoom(d)
                     })
 
@@ -500,6 +499,8 @@ const vis = {
                         console.log("d.row", d3.event)
                         let data = ''
                         let filterLevel = ''
+
+
                         if(d.depth === 4)
                         {
                             filterLevel = "taxonomy.sub_sector_level_3"
@@ -572,7 +573,7 @@ const vis = {
                 
                     let classCentered = ''
                         
-                    console.log("d.depth", d.depth, getCellText(d))
+                    // console.log("d.depth", d.depth, getCellText(d))
 
                     if(d.depth === 0 || d.depth === 1){
                         classCentered = 'textdivMenu'
