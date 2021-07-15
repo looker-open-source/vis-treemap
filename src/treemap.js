@@ -418,8 +418,6 @@ const vis = {
                     
                     .on("dblclick", d => { 
                         
-                        event.preventDefault()
-
                         clearTimeout(timeout);
     
                         LookerCharts.Utils.openDrillMenu({
