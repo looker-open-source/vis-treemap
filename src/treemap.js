@@ -234,7 +234,9 @@ const vis = {
 
         const getCellText = function(d) {
             var cell_string = ''
-
+            
+            console.log("getCellText", d)
+            
             if (d.depth === 0) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
