@@ -519,7 +519,7 @@ const vis = {
 
 
                         let data = {
-                            [filterLevel] : { value: d.data[filterLevel]}
+                            [filterLevel] : { value: d.data.key}
                         }
 
                         if (details.crossfilterEnabled) {   
