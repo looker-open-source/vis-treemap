@@ -363,7 +363,7 @@ const vis = {
 
         const getDivName = function(d){
             let divName;
-            if(d.depth === 0 || d.depth === 1){
+            if(d.depth === 0 || d.depth === 1 || d.depth === 2){
                 divName = "textdivMenu"
             }
             else{
