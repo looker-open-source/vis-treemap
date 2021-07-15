@@ -15,7 +15,7 @@ const default_options = {
   numberOfLevels: {
     section: "Data",
     type: "number",
-    label: "Number of headers to show",
+    label: "Number of levels to show",
     default: 2
   },
   cellColor: {
@@ -246,7 +246,7 @@ const vis = {
                     
                 }
                 
-            } else if (d.depth < number_of_headers && config.showSubHeaders) {
+            } else if ( config.showSubHeaders) {
                 display_value = formatValue(d.value);
                 if (d.data.key == null) {
                     cell_string = '' ;
