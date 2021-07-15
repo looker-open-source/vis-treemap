@@ -251,6 +251,25 @@ const vis = {
                 }
                 
             } 
+
+            if ( d.depth === 1 && config.showSubHeaders) {
+                display_value = formatValue(d.value);
+                if (d.data.key == null) {
+                    cell_string = '' ;
+                } else {
+                    if(d.data.key == "null"){
+                        cell_string = "";
+                    }else{
+                        cell_string = "<div class='navigation'>"+ d.data.key + " (" + display_value + ") &#187; </div>";
+                    }                    
+                }
+            } else if (d.height === 0) {
+                if (config["sizeBy"] === "count_of_rows") {
+                    cell_string = "1";
+                } else {
+                    cell_string = getBoxTip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
+                }
+            } 
            
             if ( d.depth === 2 && config.showSubHeaders) {
                 display_value = formatValue(d.value);
