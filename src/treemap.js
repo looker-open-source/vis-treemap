@@ -504,21 +504,21 @@ const vis = {
                         {
                             filterLevel = "taxonomy.sub_sector_level_3"
                             data = {
-                                [filterLevel] : [filterLevel] 
+                                [filterLevel] : { value: d.data[filterLevel]}
                             }
                         }
                         if(d.depth === 3)
                         {
                             filterLevel = "taxonomy.sub_sector_level_3"
                             data = {
-                                [filterLevel] : [filterLevel] 
+                                [filterLevel] : { value: d.data[filterLevel]}
                             }
                         }
                         if(d.depth === 2)
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
                             data = {
-                                [filterLevel] : [filterLevel] 
+                                [filterLevel] : { value: d.data[filterLevel]}
                             }
                         }
                         if(d.depth === 1)
