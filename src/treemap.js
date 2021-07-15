@@ -33,11 +33,6 @@ const default_options = {
 
 const timeout = null;
 
-//Temp
-// const dumpToConsole = function(message, obj) {
-//     console.log(message, JSON.stringify(obj, null, 2));
-// }
-
 const formatValue = function(number) {
     return parseInt(number);
 }
@@ -96,7 +91,6 @@ const getNewConfigOptions = function(dimensions, measures) {
     var size_by_options = [];
     for (var i = 0; i < measures.length; i++) {
         var option = {};
-        // option[measures[i]] = i.toString();
         option[measures[i].label] = measures[i].name;
         size_by_options.push(option);
     }
@@ -238,7 +232,7 @@ const vis = {
             if (d.depth === 0) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
-                    cell_string = "Top Level. Click on cells to zoom IN, or click on this bar to zoom OUT."; 
+                    cell_string = "Right-click on cells to drill down, or Right-click on this bar to drill back up. Simple click will toogle the filtering."; 
                 } else {
                     if(d.value == "null"){
                         cell_string = "";
@@ -386,36 +380,21 @@ const vis = {
                     .attr("width", d => Math.max(0, d.x1 - d.x0)-5)
                     .attr("height", d => Math.max(0, d.y1 - d.y0))
                     .attr("fill", d => getColor(d))
-                    //.attr("stroke", defaultCellColor)
                     .style('stroke', 'black')
                     .style('stroke-width', '0')
                     .on("mouseover", function(d) {
 
-                        // console.log('mouseover', d3.event)
-
-                        //Get this bar's x/y values, then augment for the tooltip
-                        var top_left_x = parseFloat(d3.select(this).attr("x"))
-                        var top_left_y = parseFloat(d3.select(this).attr("y"))
-                        
-
                         var pageX = d3.event.pageX
                         var pageY = d3.event.pageY
-                        // var container_y = element.attr('y')
-                        // console.log('coords', top_left_x, top_left_y, container_x, element, this, d3.event)
-
+                      
                         var xPosition = pageX;
                         var yPosition = pageY;
 
-                        // var xPosition = parseFloat(d3.select(this).attr("x")) + 50;
-                        // var yPosition = parseFloat(d3.select(this).attr("y")) + 50;
-
-                        //Update the tooltip position and value
                         d3.select("#tooltip")
                             .style("left", xPosition + "px")
                             .style("top", yPosition + "px")                   
                             .html(getTooltip(d));
 
-                        //Show the tooltip
                         d3.select("#tooltip").classed("hidden", false)
                         d3.select(this).style('stroke', 'white');
                         d3.select(this).style('stroke-width', '6');
@@ -432,149 +411,72 @@ const vis = {
                         
                     })
                     .on("mouseout", function() {
-                        //Hide the tooltip
                         d3.select("#tooltip").classed("hidden", true);
                         d3.select(this).style('stroke', 'black');
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    // .on("dblclick", d => { 
+                    .on("dblclick", d => { 
 
-                    //     clearTimeout(timeout);
+                        clearTimeout(timeout);
     
-                    //     // console.clear();
-                    //     // console.log("node was double clicked", new Date());                        
-                    //     //alert("node was double clicked") 
-                    //     zoom(d)
-                    // })
+                        LookerCharts.Utils.openDrillMenu({
+                            links: d.links,
+                            event: event
+                        })  
+                    })
 
                     .on('click', d => {
-                        // console.log('click d.data', d.data)
-                        // console.log('dimensions', dimensions)
+       
+                        timeout = setTimeout(function() {                           
 
-                            
-                        // timeout = setTimeout(function() {
-                        //     console.clear();
-                        //     console.log("node was single clicked", new Date());
+                            let data = ''
+                            let filterLevel = ''
 
-                        //     if (details.crossfilterEnabled) {
-                        //         let cross_filter_dimension  // dimension to cross-filter
-                        //         let pseudoRow = {}          // fake 'row' object to send to cross filter api
-        
-                        //         // Test whether use has clicked on a 'heading' or a 'tile'
-                        //         // to decide whether to cross-filter on first or second dimension 
-                        //         if ('key' in d.data && 'values' in d.data) {
-                        //           cross_filter_dimension = dimensions[0].name
-                        //           pseudoRow[cross_filter_dimension] = { value: d.data.key }
-                        //         } else {
-                        //           cross_filter_dimension = dimensions[1].name
-                        //           pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
-                        //         }
-                        //         console.log('pseudoRow', pseudoRow)
-                                
-                        //         LookerCharts.Utils.toggleCrossfilter({
-                        //             row: pseudoRow,
-                        //             event: d3.event,
-                        //         });
-                        //       } else {
-                        //         let event = {
-                        //           metaKey: d3.event.metaKey,
-                        //           pageX: d3.event.pageX,
-                        //           pageY: d3.event.pageY - window.pageYOffset
-                        //         }
-                      
-                        //         LookerCharts.Utils.openDrillMenu({
-                        //           links: d.links,
-                        //           event: event
-                        //         })          
-                        //       }
-
-
-                        // }, 300)
-
-                        console.log("d", d)
-                        console.log("d.row", d3.event)
-                        console.log("details.crossfilterEnabled", details.crossfilterEnabled)
-                        console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
-                        console.log("d.row", d3.event)
-                        let data = ''
-                        let filterLevel = ''
-
-
-                        if(d.depth === 4)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                            data = {
-                                [filterLevel] : { value: d.data[filterLevel]}
+                            if(d.depth === 4)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_3"
+                                data = {
+                                    [filterLevel] : { value: d.data[filterLevel]}
+                                }
                             }
-                        }
-                        if(d.depth === 3)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                            data = {
-                                [filterLevel] : { value: d.data[filterLevel]}
+                            if(d.depth === 3)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_3"
+                                data = {
+                                    [filterLevel] : { value: d.data[filterLevel]}
+                                }
                             }
-                        }
-                        if(d.depth === 2)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_4"
-                            data = {
-                                [filterLevel] : { value: d.data.key}
+                            if(d.depth === 2)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_4"
+                                data = {
+                                    [filterLevel] : { value: d.data.key}
+                                }
                             }
-                        }
-                        if(d.depth === 1)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_2"
-                            data = {
-                                [filterLevel] : { value: d.data.key}
+                            if(d.depth === 1)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_2"
+                                data = {
+                                    [filterLevel] : { value: d.data.key}
+                                }
                             }
-                        }
 
+                            if (details.crossfilterEnabled) {   
+                                LookerCharts.Utils.toggleCrossfilter({row: data})
+                            } 
 
-                        // let data = {
-                        //     [filterLevel] : [filterLevel] 
-                        // }
-
-                        if (details.crossfilterEnabled) {   
-                            //zoom(d)
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
-                        } 
-
-                        // if(d.depth === 1)
-                        // {
-                        //     zoom(d)
-                        // }
-                        // if(d.depth === 0)
-                        // {
-                        //     zoom(d)
-                        // }
-
-                        //zoom(d)
-     
+                        }, 300)
                        
                     })
                     
                     .on('contextmenu', d => {
                         event.preventDefault();
-                        zoom(d)
-
-                        // if (details.crossfilterEnabled) {
-                        //   event.preventDefault()
-                        //   // TODO: this should be based on the sizeBy measure
-                        //   let measure = measures[0].name
-  
-                        //   LookerCharts.Utils.openDrillMenu({
-                        //     links: d.data.metadata[measure].links,
-                        //     event: event
-                        //   }) 
-                        // }
-                      })
+                        zoom(d)       
+                    })
 
                 
                     let classCentered = ''
-                        
-                    // console.log("d.depth", d.depth, getCellText(d))
-
                     if(d.depth === 0 || d.depth === 1){
                         classCentered = 'textdivMenu'
                     }
