@@ -252,7 +252,7 @@ const vis = {
                 
             } 
 
-            else if (d.depth <= number_of_headers) {
+            else if (d.depth <= config.numberOfLevels) {
                 display_value = formatValue(d.value);
                 if (d.data.key == null) {
                     cell_string = '' ;
@@ -260,7 +260,7 @@ const vis = {
                     if(d.data.key == "null"){
                         cell_string = "";
                     }else{
-                        cell_string = "<div class='navigation'>&#187; "+ d.data.key + " (" + display_value + ")</div>";
+                        cell_string = "<div class='navigation'>"+ d.data.key + " (" + display_value + ")</div>";
                     }                    
                 }
             } 
