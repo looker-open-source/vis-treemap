@@ -234,13 +234,11 @@ const vis = {
 
         const getCellText = function(d) {
             var cell_string = ''
-            var display_value = ''
-            console.log("getCellText", d)
-            
-            if (d.depth === 0 && config.showSubHeaders) {
-                display_value = formatValue(d.value);
+
+            if (d.depth === 0) {
+                var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
-                    cell_string = "Top Level. Right click on cells to zoom IN, or right click on this bar to zoom OUT."; 
+                    cell_string = "Top Level. Click on cells to zoom IN, or click on this bar to zoom OUT."; 
                 } else {
                     if(d.value == "null"){
                         cell_string = "";
@@ -250,9 +248,7 @@ const vis = {
                     
                 }
                 
-            } 
-
-            else if (d.depth <= config.numberOfLevels) {
+            } else if (d.depth < number_of_headers && config.showSubHeaders) {
                 display_value = formatValue(d.value);
                 if (d.data.key == null) {
                     cell_string = '' ;
@@ -260,38 +256,16 @@ const vis = {
                     if(d.data.key == "null"){
                         cell_string = "";
                     }else{
-                        cell_string = "<div class='navigation'>"+ d.data.key + " (" + display_value + ")</div>";
+                        cell_string = "<div class='navigation'>&#187; "+ d.data.key + " (" + display_value + ")</div>";
                     }                    
                 }
-            } 
-            else if (d.height === 0) {
+            } else if (d.height === 0) {
                 if (config["sizeBy"] === "count_of_rows") {
                     cell_string = "1";
                 } else {
                     cell_string = getBoxTip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
                 }
             } 
-           
-            // if ( d.depth === 2 && config.showSubHeaders) {
-            //     display_value = formatValue(d.value);
-            //     if (d.data.key == null) {
-            //         cell_string = '' ;
-            //     } else {
-            //         if(d.data.key === "null"){
-            //             cell_string = "";
-            //         }else{
-            //             cell_string = "<div class='navigation'>"+ d.data.key + " (" + display_value + ") &#187; </div>";
-            //         }                    
-            //     }
-            // } 
-            
-            // if (d.height === 0) {
-            //     if (config["sizeBy"] === "count_of_rows") {
-            //         cell_string = "1";
-            //     } else {
-            //         cell_string = getBoxTip(d) //+'<br>' + d.data.metadata[config["sizeBy"]].rendered;                    
-            //     }
-            // } 
 
             return cell_string
         }
@@ -319,7 +293,7 @@ const vis = {
                 }
             } else {
                 if(d.data.key == "null"){
-                    tiptext += "";
+                    tiptext += "-";
                 }else{
                     tiptext += d.data.key;
                 }
