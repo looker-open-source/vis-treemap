@@ -450,49 +450,90 @@ const vis = {
                     })
 
                     .on('click', d => {
-                        console.log('click d.data', d.data)
-                        console.log('dimensions', dimensions)
+                        // console.log('click d.data', d.data)
+                        // console.log('dimensions', dimensions)
 
                             
-                        timeout = setTimeout(function() {
-                            console.clear();
-                            console.log("node was single clicked", new Date());
+                        // timeout = setTimeout(function() {
+                        //     console.clear();
+                        //     console.log("node was single clicked", new Date());
 
-                            if (details.crossfilterEnabled) {
-                                let cross_filter_dimension  // dimension to cross-filter
-                                let pseudoRow = {}          // fake 'row' object to send to cross filter api
+                        //     if (details.crossfilterEnabled) {
+                        //         let cross_filter_dimension  // dimension to cross-filter
+                        //         let pseudoRow = {}          // fake 'row' object to send to cross filter api
         
-                                // Test whether use has clicked on a 'heading' or a 'tile'
-                                // to decide whether to cross-filter on first or second dimension 
-                                if ('key' in d.data && 'values' in d.data) {
-                                  cross_filter_dimension = dimensions[0].name
-                                  pseudoRow[cross_filter_dimension] = { value: d.data.key }
-                                } else {
-                                  cross_filter_dimension = dimensions[1].name
-                                  pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
-                                }
-                                console.log('pseudoRow', pseudoRow)
+                        //         // Test whether use has clicked on a 'heading' or a 'tile'
+                        //         // to decide whether to cross-filter on first or second dimension 
+                        //         if ('key' in d.data && 'values' in d.data) {
+                        //           cross_filter_dimension = dimensions[0].name
+                        //           pseudoRow[cross_filter_dimension] = { value: d.data.key }
+                        //         } else {
+                        //           cross_filter_dimension = dimensions[1].name
+                        //           pseudoRow[cross_filter_dimension] = { value: d.data[cross_filter_dimension] }
+                        //         }
+                        //         console.log('pseudoRow', pseudoRow)
                                 
-                                LookerCharts.Utils.toggleCrossfilter({
-                                    row: pseudoRow,
-                                    event: d3.event,
-                                });
-                              } else {
-                                let event = {
-                                  metaKey: d3.event.metaKey,
-                                  pageX: d3.event.pageX,
-                                  pageY: d3.event.pageY - window.pageYOffset
-                                }
+                        //         LookerCharts.Utils.toggleCrossfilter({
+                        //             row: pseudoRow,
+                        //             event: d3.event,
+                        //         });
+                        //       } else {
+                        //         let event = {
+                        //           metaKey: d3.event.metaKey,
+                        //           pageX: d3.event.pageX,
+                        //           pageY: d3.event.pageY - window.pageYOffset
+                        //         }
                       
-                                LookerCharts.Utils.openDrillMenu({
-                                  links: d.links,
-                                  event: event
-                                })          
-                              }
+                        //         LookerCharts.Utils.openDrillMenu({
+                        //           links: d.links,
+                        //           event: event
+                        //         })          
+                        //       }
 
 
-                        }, 300)
+                        // }, 300)
 
+                        console.log("d", d)
+                        console.log("d.row", d3.event)
+                        console.log("details.crossfilterEnabled", details.crossfilterEnabled)
+                        console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
+                        console.log("d.row", d3.event)
+
+                        let filterLevel = ''
+                        if(d.depth === 4)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                        }
+                        if(d.depth === 3)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                        }
+                        if(d.depth === 2)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_4"
+                        }
+
+
+                        let data = {
+                            [filterLevel] : { value: d.data[filterLevel]}
+                        }
+
+                        if (details.crossfilterEnabled) {   
+                            //zoom(d)
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
+                        } 
+
+                        // if(d.depth === 1)
+                        // {
+                        //     zoom(d)
+                        // }
+                        // if(d.depth === 0)
+                        // {
+                        //     zoom(d)
+                        // }
+
+                        //zoom(d)
+     
                        
                     })
                     
