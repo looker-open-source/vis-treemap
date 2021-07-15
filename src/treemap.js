@@ -436,6 +436,8 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
+                    .on("dblclick", d => { alert("node was double clicked") zoom(d)})
+
                     .on('click', d => {
                         console.log('click d.data', d.data)
                         console.log('dimensions', dimensions)
