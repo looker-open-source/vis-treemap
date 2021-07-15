@@ -12,6 +12,12 @@ const default_options = {
     label: "Show Sub Headers",
     default: "true"
   },
+  numberOfLevels: {
+    section: "Data",
+    type: "number",
+    label: "Number of headers to show",
+    default: 2
+  },
   cellColor: {
     section: "Data",
     type: "array",
@@ -155,7 +161,7 @@ const vis = {
         const chartCentreY = bounds.y + (bounds.height / 2);
 
         const headerColor = defaultHeaderColor;
-        const number_of_headers = 3;
+        const number_of_headers = config.numberOfLevels;
 
         const dimensions = queryResponse.fields.dimension_like;
         const measures = queryResponse.fields.measure_like;
