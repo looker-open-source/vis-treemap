@@ -497,7 +497,7 @@ const vis = {
                     })
                     
                     .on('contextmenu', d => {
-
+                        event.preventDefault();
                         zoom(d)
 
                         // if (details.crossfilterEnabled) {
