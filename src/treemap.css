@@ -42,7 +42,7 @@ rect:hover {
 .textdiv {
     border: 1px solid transparent;
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     pointer-events: none;
     overflow: none;    
     word-wrap: break-word;
@@ -54,7 +54,7 @@ rect:hover {
 
 .textdivMenu {
     font-family: 'Roboto', "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
     color: #1a1a1a;
 }
