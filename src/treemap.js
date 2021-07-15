@@ -498,29 +498,41 @@ const vis = {
                         console.log("details.crossfilterEnabled", details.crossfilterEnabled)
                         console.log("d.row", d.data["taxonomy.sub_sector_level_2"])
                         console.log("d.row", d3.event)
-
+                        let data = ''
                         let filterLevel = ''
                         if(d.depth === 4)
                         {
                             filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : [filterLevel] 
+                            }
                         }
                         if(d.depth === 3)
                         {
                             filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : [filterLevel] 
+                            }
                         }
                         if(d.depth === 2)
                         {
                             filterLevel = "taxonomy.sub_sector_level_4"
+                            data = {
+                                [filterLevel] : [filterLevel] 
+                            }
                         }
                         if(d.depth === 1)
                         {
                             filterLevel = "taxonomy.sub_sector_level_2"
+                            data = {
+                                [filterLevel] : { value: d.data.key}
+                            }
                         }
 
 
-                        let data = {
-                            [filterLevel] : { value: d.data.key}
-                        }
+                        // let data = {
+                        //     [filterLevel] : [filterLevel] 
+                        // }
 
                         if (details.crossfilterEnabled) {   
                             //zoom(d)
