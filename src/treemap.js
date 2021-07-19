@@ -419,52 +419,53 @@ const vis = {
                     .on("dblclick", d => { 
                         
                         clearTimeout(timeout);
-                            timeout = setTimeout(function() {       
-                            LookerCharts.Utils.openDrillMenu({
-                                links: d.links,
-                                event: event
-                            }) 
-                        }, 300)
+                            
+                        LookerCharts.Utils.openDrillMenu({
+                            links: d.links,
+                            event: event
+                        }) 
+                        
                     })
 
                     .on('click', d => {
-                        clearTimeout(timeout)      
-                        let data = ''
-                        let filterLevel = ''
+                        // clearTimeout(timeout)      
+                        timeout = setTimeout(function() {       
+                            let data = ''
+                            let filterLevel = ''
 
-                        if(d.depth === 4)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                            data = {
-                                [filterLevel] : { value: d.data[filterLevel]}
+                            if(d.depth === 4)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_3"
+                                data = {
+                                    [filterLevel] : { value: d.data[filterLevel]}
+                                }
                             }
-                        }
-                        if(d.depth === 3)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_3"
-                            data = {
-                                [filterLevel] : { value: d.data[filterLevel]}
+                            if(d.depth === 3)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_3"
+                                data = {
+                                    [filterLevel] : { value: d.data[filterLevel]}
+                                }
                             }
-                        }
-                        if(d.depth === 2)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_4"
-                            data = {
-                                [filterLevel] : { value: d.data.key}
+                            if(d.depth === 2)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_4"
+                                data = {
+                                    [filterLevel] : { value: d.data.key}
+                                }
                             }
-                        }
-                        if(d.depth === 1)
-                        {
-                            filterLevel = "taxonomy.sub_sector_level_2"
-                            data = {
-                                [filterLevel] : { value: d.data.key}
+                            if(d.depth === 1)
+                            {
+                                filterLevel = "taxonomy.sub_sector_level_2"
+                                data = {
+                                    [filterLevel] : { value: d.data.key}
+                                }
                             }
-                        }
 
-                        if (details.crossfilterEnabled) {   
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
-                        } 
-                       
+                            if (details.crossfilterEnabled) {   
+                                LookerCharts.Utils.toggleCrossfilter({row: data})
+                            } 
+                        }, 500)
                     })
                     
                     .on('contextmenu', d => {
