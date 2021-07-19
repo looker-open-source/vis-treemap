@@ -513,14 +513,14 @@ const vis = {
 
 
                     function run_on_simple_click(d) {                     
-                        alert("simpleclick");
+                        console.log("simpleclick");
                         clickedOnce = false;
                     }
                     
                     function run_on_double_click(d) {
                         clickedOnce = false;
                         clearTimeout(timer);
-                        alert("doubleclick");
+                        console.log("doubleclick");
                     }
                     
 
