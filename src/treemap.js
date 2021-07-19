@@ -514,6 +514,44 @@ const vis = {
 
                     function run_on_simple_click(d) {                     
                         console.log("simpleclick");
+
+                        let data = ''
+                        let filterLevel = ''
+
+                        if(d.depth === 4)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : { value: d.data[filterLevel]}
+                            }
+                        }
+                        if(d.depth === 3)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : { value: d.data[filterLevel]}
+                            }
+                        }
+                        if(d.depth === 2)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_4"
+                            data = {
+                                [filterLevel] : { value: d.data.key}
+                            }
+                        }
+                        if(d.depth === 1)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_2"
+                            data = {
+                                [filterLevel] : { value: d.data.key}
+                            }
+                        }
+
+                        if (details.crossfilterEnabled) {                                  
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
+                            event.preventDefault();
+                        }         
+
                         clickedOnce = false;
                     }
                     
@@ -521,6 +559,7 @@ const vis = {
                         clickedOnce = false;
                         clearTimeout(timer);
                         console.log("doubleclick");
+                        zoom(d)      
                     }
                     
 
