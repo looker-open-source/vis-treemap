@@ -418,7 +418,7 @@ const vis = {
                     
                     .on("dblclick", d => { 
                         
-                        //clearTimeout(timeout)
+                        clearTimeout(timeout)
 
                         let event = {
                             metaKey: d3.event.metaKey,
