@@ -31,7 +31,8 @@ const default_options = {
   },
 };
 
-const timeout = null;
+var clickedOnce = false;
+var timer;
 
 const formatValue = function(number) {
     return parseInt(number);
@@ -416,53 +417,66 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    .on("dblclick", d => { 
-                        clearTimeout(timeout)      
-                        LookerCharts.Utils.openDrillMenu({
-                            links: d.links,
-                            event: event
-                        }) 
-                    })
+                    // .on("dblclick", d => { 
+                    //     clearTimeout(timeout)      
+                    //     LookerCharts.Utils.openDrillMenu({
+                    //         links: d.links,
+                    //         event: event
+                    //     }) 
+                    // })
 
                     .on('click', d => {
-                        //clearTimeout(timeout)      
-                        timeout = setTimeout(function() {       
-                            let data = ''
-                            let filterLevel = ''
+                  
 
-                            if(d.depth === 4)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_3"
-                                data = {
-                                    [filterLevel] : { value: d.data[filterLevel]}
-                                }
-                            }
-                            if(d.depth === 3)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_3"
-                                data = {
-                                    [filterLevel] : { value: d.data[filterLevel]}
-                                }
-                            }
-                            if(d.depth === 2)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_4"
-                                data = {
-                                    [filterLevel] : { value: d.data.key}
-                                }
-                            }
-                            if(d.depth === 1)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_2"
-                                data = {
-                                    [filterLevel] : { value: d.data.key}
-                                }
-                            }
+                        if (clickedOnce) {
 
-                            if (details.crossfilterEnabled) {   
-                                LookerCharts.Utils.toggleCrossfilter({row: data})
-                            } 
-                        }, 1000)
+                            LookerCharts.Utils.openDrillMenu({
+                                links: d.links,
+                                event: event
+                            }) 
+
+                        } else {
+                            timer = setTimeout(function() {                                
+                                let data = ''
+                                let filterLevel = ''
+
+                                if(d.depth === 4)
+                                {
+                                    filterLevel = "taxonomy.sub_sector_level_3"
+                                    data = {
+                                        [filterLevel] : { value: d.data[filterLevel]}
+                                    }
+                                }
+                                if(d.depth === 3)
+                                {
+                                    filterLevel = "taxonomy.sub_sector_level_3"
+                                    data = {
+                                        [filterLevel] : { value: d.data[filterLevel]}
+                                    }
+                                }
+                                if(d.depth === 2)
+                                {
+                                    filterLevel = "taxonomy.sub_sector_level_4"
+                                    data = {
+                                        [filterLevel] : { value: d.data.key}
+                                    }
+                                }
+                                if(d.depth === 1)
+                                {
+                                    filterLevel = "taxonomy.sub_sector_level_2"
+                                    data = {
+                                        [filterLevel] : { value: d.data.key}
+                                    }
+                                }
+
+                                if (details.crossfilterEnabled) {   
+                                    LookerCharts.Utils.toggleCrossfilter({row: data})
+                                }                               
+                            }, 150)
+                            clickedOnce = true;
+                        }
+
+                       
                     })
                     
                     .on('contextmenu', d => {
