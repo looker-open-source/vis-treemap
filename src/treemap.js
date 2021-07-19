@@ -470,10 +470,10 @@ const vis = {
                        
                     })
                     
-                    .on('contextmenu', d => {
-                        event.preventDefault();
-                        zoom(d)       
-                    })
+                    // .on('contextmenu', d => {
+                    //     event.preventDefault();
+                    //     zoom(d)       
+                    // })
 
                 
                     let classCentered = ''
