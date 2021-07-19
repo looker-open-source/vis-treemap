@@ -441,7 +441,7 @@ const vis = {
                         } else {
                             timer = setTimeout(function() {
                                 run_on_simple_click(d);
-                             }, 150);
+                             }, 250);
                              clickedOnce = true;
 
                             // timer = setTimeout(function() {                                
