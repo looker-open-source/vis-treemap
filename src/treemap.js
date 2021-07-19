@@ -435,8 +435,6 @@ const vis = {
 
                             clickedOnce = false
                             clearTimeout(timer)
-
-                            event.preventDefault();
                             zoom(d)       
     
 
@@ -474,9 +472,9 @@ const vis = {
                                     }
                                 }
 
-                                if (details.crossfilterEnabled) {   
-                                    event.preventDefault();
+                                if (details.crossfilterEnabled) {                                  
                                     LookerCharts.Utils.toggleCrossfilter({row: data})
+                                    event.preventDefault();
                                 }                               
                             }, 250)
                             clickedOnce = true;
