@@ -433,51 +433,56 @@ const vis = {
 
                         if (clickedOnce) {
 
-                            clickedOnce = false
-                            clearTimeout(timer)
-                            zoom(d)       
-    
+                            // clickedOnce = false
+                            // clearTimeout(timer)
+                            // zoom(d)       
+                            run_on_double_click();
 
                         } else {
-                            timer = setTimeout(function() {                                
-                                let data = ''
-                                let filterLevel = ''
+                            timer = setTimeout(function() {
+                                run_on_simple_click(parameter);
+                             }, 150);
+                             clickedOnce = true;
 
-                                if(d.depth === 4)
-                                {
-                                    filterLevel = "taxonomy.sub_sector_level_3"
-                                    data = {
-                                        [filterLevel] : { value: d.data[filterLevel]}
-                                    }
-                                }
-                                if(d.depth === 3)
-                                {
-                                    filterLevel = "taxonomy.sub_sector_level_3"
-                                    data = {
-                                        [filterLevel] : { value: d.data[filterLevel]}
-                                    }
-                                }
-                                if(d.depth === 2)
-                                {
-                                    filterLevel = "taxonomy.sub_sector_level_4"
-                                    data = {
-                                        [filterLevel] : { value: d.data.key}
-                                    }
-                                }
-                                if(d.depth === 1)
-                                {
-                                    filterLevel = "taxonomy.sub_sector_level_2"
-                                    data = {
-                                        [filterLevel] : { value: d.data.key}
-                                    }
-                                }
+                            // timer = setTimeout(function() {                                
+                            //     let data = ''
+                            //     let filterLevel = ''
 
-                                if (details.crossfilterEnabled) {                                  
-                                    LookerCharts.Utils.toggleCrossfilter({row: data})
-                                    event.preventDefault();
-                                }                               
-                            }, 150)
-                            clickedOnce = true;
+                            //     if(d.depth === 4)
+                            //     {
+                            //         filterLevel = "taxonomy.sub_sector_level_3"
+                            //         data = {
+                            //             [filterLevel] : { value: d.data[filterLevel]}
+                            //         }
+                            //     }
+                            //     if(d.depth === 3)
+                            //     {
+                            //         filterLevel = "taxonomy.sub_sector_level_3"
+                            //         data = {
+                            //             [filterLevel] : { value: d.data[filterLevel]}
+                            //         }
+                            //     }
+                            //     if(d.depth === 2)
+                            //     {
+                            //         filterLevel = "taxonomy.sub_sector_level_4"
+                            //         data = {
+                            //             [filterLevel] : { value: d.data.key}
+                            //         }
+                            //     }
+                            //     if(d.depth === 1)
+                            //     {
+                            //         filterLevel = "taxonomy.sub_sector_level_2"
+                            //         data = {
+                            //             [filterLevel] : { value: d.data.key}
+                            //         }
+                            //     }
+
+                            //     if (details.crossfilterEnabled) {                                  
+                            //         LookerCharts.Utils.toggleCrossfilter({row: data})
+                            //         event.preventDefault();
+                            //     }                               
+                            // }, 150)
+                            // clickedOnce = true;
                         }
                        
                     })
@@ -505,6 +510,18 @@ const vis = {
                     .append("xhtml:div")
                         .html(d => getCellText(d))
                         .attr("class", (d) => getDivName(d))
+
+
+                    function run_on_simple_click(d) {                     
+                        alert("simpleclick");
+                        clickedOnce = false;
+                    }
+                    
+                    function run_on_double_click(d) {
+                        clickedOnce = false;
+                        clearTimeout(timer);
+                        alert("doubleclick");
+                    }
                     
 
                     function zoom(d) {
