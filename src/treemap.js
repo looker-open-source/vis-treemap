@@ -416,57 +416,54 @@ const vis = {
                         d3.select(this).style('stroke-width', '0');
                     })
                     
-                    // .on("dblclick", d => { 
+                    .on("dblclick", d => { 
                         
-                    //     clearTimeout(timeout);
-    
-                    //     LookerCharts.Utils.openDrillMenu({
-                    //         links: d.links,
-                    //         event: event
-                    //     })  
-                    // })
+                        clearTimeout(timeout);
+                            timeout = setTimeout(function() {       
+                            LookerCharts.Utils.openDrillMenu({
+                                links: d.links,
+                                event: event
+                            }) 
+                        }, 300)
+                    })
 
                     .on('click', d => {
-                        clearTimeout(timeout);
-                        timeout = setTimeout(function() {                           
+                        clearTimeout(timeout)      
+                        let data = ''
+                        let filterLevel = ''
 
-                            let data = ''
-                            let filterLevel = ''
+                        if(d.depth === 4)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : { value: d.data[filterLevel]}
+                            }
+                        }
+                        if(d.depth === 3)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_3"
+                            data = {
+                                [filterLevel] : { value: d.data[filterLevel]}
+                            }
+                        }
+                        if(d.depth === 2)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_4"
+                            data = {
+                                [filterLevel] : { value: d.data.key}
+                            }
+                        }
+                        if(d.depth === 1)
+                        {
+                            filterLevel = "taxonomy.sub_sector_level_2"
+                            data = {
+                                [filterLevel] : { value: d.data.key}
+                            }
+                        }
 
-                            if(d.depth === 4)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_3"
-                                data = {
-                                    [filterLevel] : { value: d.data[filterLevel]}
-                                }
-                            }
-                            if(d.depth === 3)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_3"
-                                data = {
-                                    [filterLevel] : { value: d.data[filterLevel]}
-                                }
-                            }
-                            if(d.depth === 2)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_4"
-                                data = {
-                                    [filterLevel] : { value: d.data.key}
-                                }
-                            }
-                            if(d.depth === 1)
-                            {
-                                filterLevel = "taxonomy.sub_sector_level_2"
-                                data = {
-                                    [filterLevel] : { value: d.data.key}
-                                }
-                            }
-
-                            if (details.crossfilterEnabled) {   
-                                LookerCharts.Utils.toggleCrossfilter({row: data})
-                            } 
-
-                        }, 300)
+                        if (details.crossfilterEnabled) {   
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
+                        } 
                        
                     })
                     
@@ -474,15 +471,6 @@ const vis = {
                         event.preventDefault();
                         zoom(d)       
                     })
-
-                
-                    // let classCentered = ''
-                    // if(d.depth === 0 || d.depth === 1){
-                    //     classCentered = 'textdivMenu'
-                    // }
-                    // else{
-                    //     classCentered = "textdiv"
-                    // }
 
                     treemapCells.append("foreignObject")
                         .attr("x", d => d.x0 + 3)
@@ -497,8 +485,7 @@ const vis = {
                         .html(d => getCellText(d))
                         .attr("class", (d) => getDivName(d))
                     
-                        
-                                    
+
                     function zoom(d) {
                         if (d.depth === 0) {
                             if (config.breadcrumbs.length === 0) {
