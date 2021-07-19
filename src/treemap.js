@@ -436,11 +436,11 @@ const vis = {
                             // clickedOnce = false
                             // clearTimeout(timer)
                             // zoom(d)       
-                            run_on_double_click();
+                            run_on_double_click(d);
 
                         } else {
                             timer = setTimeout(function() {
-                                run_on_simple_click(parameter);
+                                run_on_simple_click(d);
                              }, 150);
                              clickedOnce = true;
 
