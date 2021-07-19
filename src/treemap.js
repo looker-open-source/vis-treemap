@@ -233,7 +233,7 @@ const vis = {
             if (d.depth === 0) {
                 var display_value = formatValue(d.value);
                 if (config.breadcrumbs.length === 0) {
-                    cell_string = "Right-click on cells to drill down, or Right-click on this bar to drill back up. Simple click will toogle the filtering."; 
+                    cell_string = "One click to toogle filter, doubleclick to navigate, right click to open the drill down list from Looker"; 
                 } else {
                     if(d.value == "null"){
                         cell_string = "";
