@@ -435,14 +435,10 @@ const vis = {
 
                             clickedOnce = false
                             clearTimeout(timer)
-                            event.preventDefault()
-                            // TODO: this should be based on the sizeBy measure
-                            let measure = measures[0].name
 
-                            LookerCharts.Utils.openDrillMenu({
-                            links: d.data.metadata[measure].links,
-                            event: event
-                            }) 
+                            event.preventDefault();
+                            zoom(d)       
+    
 
                         } else {
                             timer = setTimeout(function() {                                
@@ -489,8 +485,14 @@ const vis = {
                     })
                     
                     .on('contextmenu', d => {
-                        event.preventDefault();
-                        zoom(d)       
+                      
+                         // TODO: this should be based on the sizeBy measure
+                         let measure = measures[0].name
+
+                         LookerCharts.Utils.openDrillMenu({
+                             links: d.data.metadata[measure].links,
+                             event: event
+                         }) 
                     })
 
                     treemapCells.append("foreignObject")
