@@ -476,7 +476,7 @@ const vis = {
                                     LookerCharts.Utils.toggleCrossfilter({row: data})
                                     event.preventDefault();
                                 }                               
-                            }, 250)
+                            }, 150)
                             clickedOnce = true;
                         }
                        
