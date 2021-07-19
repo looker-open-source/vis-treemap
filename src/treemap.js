@@ -470,19 +470,19 @@ const vis = {
                        
                     })
                     
-                    // .on('contextmenu', d => {
-                    //     event.preventDefault();
-                    //     zoom(d)       
-                    // })
+                    .on('contextmenu', d => {
+                        event.preventDefault();
+                        zoom(d)       
+                    })
 
                 
-                    let classCentered = ''
-                    if(d.depth === 0 || d.depth === 1 || d.depth === 2){
-                        classCentered = 'textdivMenu'
-                    }
-                    else{
-                        classCentered = "textdiv"
-                    }
+                    // let classCentered = ''
+                    // if(d.depth === 0 || d.depth === 1){
+                    //     classCentered = 'textdivMenu'
+                    // }
+                    // else{
+                    //     classCentered = "textdiv"
+                    // }
 
                     treemapCells.append("foreignObject")
                         .attr("x", d => d.x0 + 3)
