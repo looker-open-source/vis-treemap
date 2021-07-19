@@ -418,7 +418,7 @@ const vis = {
                     
                     .on("dblclick", d => { 
                         
-                        clearTimeout(timeout)
+                        //clearTimeout(timeout)
 
                         let event = {
                             metaKey: d3.event.metaKey,
@@ -434,7 +434,7 @@ const vis = {
                     })
 
                     .on('click', d => {
-                        // clearTimeout(timeout)      
+                        clearTimeout(timeout)      
                         timeout = setTimeout(function() {       
                             let data = ''
                             let filterLevel = ''
