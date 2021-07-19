@@ -418,7 +418,13 @@ const vis = {
                     
                     .on("dblclick", d => { 
                         
-                        clearTimeout(timeout);
+                        clearTimeout(timeout)
+
+                        let event = {
+                            metaKey: d3.event.metaKey,
+                            pageX: d3.event.pageX,
+                            pageY: d3.event.pageY - window.pageYOffset
+                          }
                             
                         LookerCharts.Utils.openDrillMenu({
                             links: d.links,
