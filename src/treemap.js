@@ -435,16 +435,14 @@ const vis = {
 
                             clickedOnce = false
                             clearTimeout(timer)
-                            let event = {
-                                metaKey: d3.event.metaKey,
-                                pageX: d3.event.pageX,
-                                pageY: d3.event.pageY - window.pageYOffset
-                              }
-                    
-                              LookerCharts.Utils.openDrillMenu({
-                                links: d.links,
-                                event: event
-                              })          
+                            event.preventDefault()
+                            // TODO: this should be based on the sizeBy measure
+                            let measure = measures[0].name
+
+                            LookerCharts.Utils.openDrillMenu({
+                            links: d.data.metadata[measure].links,
+                            event: event
+                            }) 
 
                         } else {
                             timer = setTimeout(function() {                                
