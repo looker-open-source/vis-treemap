@@ -427,15 +427,7 @@ const vis = {
 
                     .on('click', d => {
 
-                        if (timer) {
-                            clearTimeout(timer);
-                        }
-
-                        if (clickedOnce) {
-
-                            // clickedOnce = false
-                            // clearTimeout(timer)
-                            // zoom(d)       
+                         if (clickedOnce) {
                             run_on_double_click(d);
 
                         } else {
@@ -443,46 +435,6 @@ const vis = {
                                 run_on_simple_click(d);
                              }, 250);
                              clickedOnce = true;
-
-                            // timer = setTimeout(function() {                                
-                            //     let data = ''
-                            //     let filterLevel = ''
-
-                            //     if(d.depth === 4)
-                            //     {
-                            //         filterLevel = "taxonomy.sub_sector_level_3"
-                            //         data = {
-                            //             [filterLevel] : { value: d.data[filterLevel]}
-                            //         }
-                            //     }
-                            //     if(d.depth === 3)
-                            //     {
-                            //         filterLevel = "taxonomy.sub_sector_level_3"
-                            //         data = {
-                            //             [filterLevel] : { value: d.data[filterLevel]}
-                            //         }
-                            //     }
-                            //     if(d.depth === 2)
-                            //     {
-                            //         filterLevel = "taxonomy.sub_sector_level_4"
-                            //         data = {
-                            //             [filterLevel] : { value: d.data.key}
-                            //         }
-                            //     }
-                            //     if(d.depth === 1)
-                            //     {
-                            //         filterLevel = "taxonomy.sub_sector_level_2"
-                            //         data = {
-                            //             [filterLevel] : { value: d.data.key}
-                            //         }
-                            //     }
-
-                            //     if (details.crossfilterEnabled) {                                  
-                            //         LookerCharts.Utils.toggleCrossfilter({row: data})
-                            //         event.preventDefault();
-                            //     }                               
-                            // }, 150)
-                            // clickedOnce = true;
                         }
                        
                     })
@@ -549,7 +501,6 @@ const vis = {
 
                         if (details.crossfilterEnabled) {                                  
                             LookerCharts.Utils.toggleCrossfilter({row: data})
-                            event.preventDefault();
                         }         
 
                         clickedOnce = false;
