@@ -426,14 +426,25 @@ const vis = {
                     // })
 
                     .on('click', d => {
-                  
+
+                        if (timer) {
+                            clearTimeout(timer);
+                        }
 
                         if (clickedOnce) {
 
-                            LookerCharts.Utils.openDrillMenu({
+                            clickedOnce = false
+                            clearTimeout(timer)
+                            let event = {
+                                metaKey: d3.event.metaKey,
+                                pageX: d3.event.pageX,
+                                pageY: d3.event.pageY - window.pageYOffset
+                              }
+                    
+                              LookerCharts.Utils.openDrillMenu({
                                 links: d.links,
                                 event: event
-                            }) 
+                              })          
 
                         } else {
                             timer = setTimeout(function() {                                
@@ -472,7 +483,7 @@ const vis = {
                                 if (details.crossfilterEnabled) {   
                                     LookerCharts.Utils.toggleCrossfilter({row: data})
                                 }                               
-                            }, 150)
+                            }, 250)
                             clickedOnce = true;
                         }
 
