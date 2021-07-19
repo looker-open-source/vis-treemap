@@ -417,24 +417,15 @@ const vis = {
                     })
                     
                     .on("dblclick", d => { 
-                        
-                        clearTimeout(timeout)
-
-                        let event = {
-                            metaKey: d3.event.metaKey,
-                            pageX: d3.event.pageX,
-                            pageY: d3.event.pageY - window.pageYOffset
-                          }
-                            
+                        clearTimeout(timeout)      
                         LookerCharts.Utils.openDrillMenu({
                             links: d.links,
                             event: event
                         }) 
-                        
                     })
 
                     .on('click', d => {
-                        clearTimeout(timeout)      
+                        //clearTimeout(timeout)      
                         timeout = setTimeout(function() {       
                             let data = ''
                             let filterLevel = ''
@@ -471,7 +462,7 @@ const vis = {
                             if (details.crossfilterEnabled) {   
                                 LookerCharts.Utils.toggleCrossfilter({row: data})
                             } 
-                        }, 150)
+                        }, 1000)
                     })
                     
                     .on('contextmenu', d => {
