@@ -477,7 +477,7 @@ const vis = {
 
                 
                     let classCentered = ''
-                    if(d.depth === 0 || d.depth === 1){
+                    if(d.depth === 0 || d.depth === 1 || d.depth === 2){
                         classCentered = 'textdivMenu'
                     }
                     else{
