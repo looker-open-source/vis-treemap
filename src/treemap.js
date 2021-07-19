@@ -475,17 +475,17 @@ const vis = {
                                 }
 
                                 if (details.crossfilterEnabled) {   
+                                    event.preventDefault();
                                     LookerCharts.Utils.toggleCrossfilter({row: data})
                                 }                               
                             }, 250)
                             clickedOnce = true;
                         }
-
                        
                     })
                     
                     .on('contextmenu', d => {
-                      
+                        event.preventDefault();
                          // TODO: this should be based on the sizeBy measure
                          let measure = measures[0].name
 
