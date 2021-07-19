@@ -471,7 +471,7 @@ const vis = {
                             if (details.crossfilterEnabled) {   
                                 LookerCharts.Utils.toggleCrossfilter({row: data})
                             } 
-                        }, 500)
+                        }, 150)
                     })
                     
                     .on('contextmenu', d => {
