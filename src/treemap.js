@@ -33,6 +33,7 @@ const default_options = {
 
 var clickedOnce = false;
 var timer;
+var isZoomed = false
 
 const formatValue = function(number) {
     return parseInt(number);
@@ -144,11 +145,8 @@ const vis = {
     },
 
     updateAsync: function(data, element, config, queryResponse, details, done) {
-        this.clearErrors();
 
-        console.log('data', data)
-        console.log('config', config)
-        console.log('queryResponse', queryResponse)
+        this.clearErrors();
 
         const chartWidth = element.clientWidth;
         const chartHeight = element.clientHeight - 16;
