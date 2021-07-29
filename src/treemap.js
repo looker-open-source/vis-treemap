@@ -495,7 +495,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {           
                             
-                            vis.trigger("updateConfig", [{currentBranch: nested_data}])  
+                            vis.trigger("updateConfig", [{currentBranch: d}])  
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
@@ -504,6 +504,7 @@ const vis = {
                     }
                     
                     function run_on_double_click(d) {
+                        vis.trigger("updateConfig", [{currentBranch: d}])  
                         clickedOnce = false;
                         clearTimeout(timer);                        
                         zoom(d)      
