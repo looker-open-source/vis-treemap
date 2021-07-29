@@ -507,7 +507,7 @@ const vis = {
                         vis.trigger("updateConfig", [{currentBranch: d}])  
                         clickedOnce = false;
                         clearTimeout(timer);                        
-                        zoom(d)      
+                        zoom(currentBranch)      
                     }
                     
 
