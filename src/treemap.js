@@ -415,15 +415,7 @@ const vis = {
                         d3.select(this).style('stroke', 'black');
                         d3.select(this).style('stroke-width', '0');
                     })
-                    
-                    // .on("dblclick", d => { 
-                    //     clearTimeout(timeout)      
-                    //     LookerCharts.Utils.openDrillMenu({
-                    //         links: d.links,
-                    //         event: event
-                    //     }) 
-                    // })
-
+                  
                     .on('click', d => {
                         
                         event.preventDefault();
@@ -503,7 +495,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {           
                             
-                            vis.trigger("updateConfig")  
+                            vis.trigger("updateConfig", [{current_branch: nested_data}])  
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
