@@ -339,7 +339,7 @@ const vis = {
             return divName
         }
 
-        const createTreemap = function(data) {
+        const createTreemap = function(data, vis) {
             var nested_data = d3.nest();
             dimensions.forEach(dim => 
                 nested_data = nested_data.key(d => d[dim.name]));
@@ -554,7 +554,7 @@ const vis = {
             displayChart(root);
         }
         
-        createTreemap(vis_data);
+        createTreemap(vis_data, vis);
         done();
     }
 };
