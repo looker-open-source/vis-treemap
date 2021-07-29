@@ -425,6 +425,8 @@ const vis = {
                     // })
 
                     .on('click', d => {
+                        
+                        event.preventDefault();
 
                          if (clickedOnce) {
                             run_on_double_click(d);
@@ -500,7 +502,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {            
                             
-                            vis.trigger("updateConfig")   
+                            vis.trigger("updateConfig")  
 
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
