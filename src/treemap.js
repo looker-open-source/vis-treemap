@@ -169,8 +169,6 @@ const vis = {
         const measure_names = getMeasureNames(queryResponse);
         const colorScale = d3.scaleOrdinal().range(config.cellColor);  
 
-        console.log("config.currentBranch", config.currentBranch)
-
         var current_branch = config.currentBranch || undefined;
  
         var treemap = d3.treemap()
@@ -417,11 +415,19 @@ const vis = {
                         d3.select(this).style('stroke', 'black');
                         d3.select(this).style('stroke-width', '0');
                     })
-                  
+                    
+                    // .on("dblclick", d => { 
+                    //     clearTimeout(timeout)      
+                    //     LookerCharts.Utils.openDrillMenu({
+                    //         links: d.links,
+                    //         event: event
+                    //     }) 
+                    // })
+
                     .on('click', d => {
                         
                         event.preventDefault();
-                        vis.trigger("updateConfig", [{currentBranch: d}])  
+
                          if (clickedOnce) {
                             run_on_double_click(d);
 
@@ -495,15 +501,17 @@ const vis = {
                             }
                         }
 
-                        if (details.crossfilterEnabled) {         
+                        if (details.crossfilterEnabled) {            
+                            
+                            vis.trigger("updateConfig")  
                             LookerCharts.Utils.toggleCrossfilter({row: data})
+
                         }         
 
                         clickedOnce = false;
                     }
                     
                     function run_on_double_click(d) {
-                        vis.trigger("updateConfig", [{currentBranch: d}])  
                         clickedOnce = false;
                         clearTimeout(timer);                        
                         zoom(d)      
