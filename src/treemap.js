@@ -514,6 +514,7 @@ const vis = {
                     function run_on_double_click(d) {
                         clickedOnce = false;
                         clearTimeout(timer);         
+                        console.log("currentBranch", current_branch)
                         vis.trigger("updateConfig", [{currentBranch: d}])                 
                         zoom(d)      
                     }
