@@ -169,6 +169,8 @@ const vis = {
         const measure_names = getMeasureNames(queryResponse);
         const colorScale = d3.scaleOrdinal().range(config.cellColor);  
 
+        console.log("config.currentBranch", config.currentBranch)
+
         var current_branch = config.currentBranch || undefined;
  
         var treemap = d3.treemap()
