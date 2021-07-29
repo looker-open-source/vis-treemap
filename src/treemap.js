@@ -465,7 +465,8 @@ const vis = {
                         .attr("class", (d) => getDivName(d))
 
 
-                    function run_on_simple_click(d) {                     
+                    function run_on_simple_click(d) { 
+                                            
                         console.log("simpleclick");
 
                         let data = ''
@@ -503,8 +504,7 @@ const vis = {
                         if (details.crossfilterEnabled) {            
                             
                             vis.trigger("updateConfig")  
-
-                            LookerCharts.Utils.toggleCrossfilter({row: data})
+                            //LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
 
