@@ -500,7 +500,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {            
                             
-                            this.trigger("updateConfig", [{axis_hidden: true}])   
+                            vis.trigger("updateConfig", [{axis_hidden: true}])   
 
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
