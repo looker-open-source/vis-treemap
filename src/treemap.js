@@ -526,7 +526,7 @@ const vis = {
                             } else {
                                 config.breadcrumbs.pop();
                                 // zoom up
-                                //updateCurrentBranch(nested_data, config.breadcrumbs.slice(0));
+                                updateCurrentBranch(nested_data, config.breadcrumbs.slice(0));
 
                                 root = treemap(d3.hierarchy(current_branch, d => d.values)
                                     .sum(d => getSize(d)))
