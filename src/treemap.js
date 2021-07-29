@@ -516,7 +516,7 @@ const vis = {
                         clearTimeout(timer);         
                         console.log("d", d)
                         console.log("currentBranch", current_branch)
-                        vis.trigger("updateConfig", [{current_branch: d}])    
+                        console.log("vis", vis.trigger("updateConfig", [{current_branch: d}]))    
                         console.log("currentBranch", current_branch)             
                         zoom(d)      
                     }
