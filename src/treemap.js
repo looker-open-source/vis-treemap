@@ -495,7 +495,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {           
                             
-                            vis.trigger("updateConfig", [{current_branch: nested_data}])  
+                            vis.trigger("updateConfig", [{currentBranch: nested_data}])  
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
