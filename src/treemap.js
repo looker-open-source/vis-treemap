@@ -503,7 +503,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {            
                             
-                            vis.trigger("updateConfig")  
+                            
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
@@ -513,7 +513,8 @@ const vis = {
                     
                     function run_on_double_click(d) {
                         clickedOnce = false;
-                        clearTimeout(timer);                        
+                        clearTimeout(timer);         
+                        vis.trigger("updateConfig", [{currentBranch: d}])                 
                         zoom(d)      
                     }
                     
