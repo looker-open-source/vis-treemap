@@ -421,7 +421,7 @@ const vis = {
                     .on('click', d => {
                         
                         event.preventDefault();
-
+                        vis.trigger("updateConfig", [{currentBranch: d}])  
                          if (clickedOnce) {
                             run_on_double_click(d);
 
@@ -495,18 +495,15 @@ const vis = {
                             }
                         }
 
-                        if (details.crossfilterEnabled) {           
-                            
-                            vis.trigger("updateConfig", [{currentBranch: current_branch}])  
+                        if (details.crossfilterEnabled) {         
                             LookerCharts.Utils.toggleCrossfilter({row: data})
-
                         }         
 
                         clickedOnce = false;
                     }
                     
                     function run_on_double_click(d) {
-                        vis.trigger("updateConfig", [{currentBranch: current_branch}])  
+                        vis.trigger("updateConfig", [{currentBranch: d}])  
                         clickedOnce = false;
                         clearTimeout(timer);                        
                         zoom(d)      
