@@ -500,7 +500,7 @@ const vis = {
 
                         if (details.crossfilterEnabled) {            
                             
-                            d3.trigger("updateConfig", [{axis_hidden: true}])   
+                            this.trigger("updateConfig", [{axis_hidden: true}])   
 
                             LookerCharts.Utils.toggleCrossfilter({row: data})
 
