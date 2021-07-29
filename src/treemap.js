@@ -169,7 +169,7 @@ const vis = {
         const measure_names = getMeasureNames(queryResponse);
         const colorScale = d3.scaleOrdinal().range(config.cellColor);  
 
-        var current_branch;
+        var current_branch = config.currentBranch || undefined;
  
         var treemap = d3.treemap()
             .size([chartWidth, chartHeight])
@@ -356,6 +356,7 @@ const vis = {
             );
 
             const displayChart = function(d) {
+
                 d3.select("#treemapSVG")
                 .remove();
 
@@ -497,8 +498,12 @@ const vis = {
                             }
                         }
 
-                        if (details.crossfilterEnabled) {                                  
+                        if (details.crossfilterEnabled) {            
+                            
+                            d3.trigger("updateConfig", [{axis_hidden: true}])   
+
                             LookerCharts.Utils.toggleCrossfilter({row: data})
+
                         }         
 
                         clickedOnce = false;
