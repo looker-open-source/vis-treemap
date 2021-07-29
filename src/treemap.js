@@ -501,10 +501,10 @@ const vis = {
                             }
                         }
 
-                        if (details.crossfilterEnabled) {            
+                        if (details.crossfilterEnabled) {           
                             
                             vis.trigger("updateConfig")  
-                            //LookerCharts.Utils.toggleCrossfilter({row: data})
+                            LookerCharts.Utils.toggleCrossfilter({row: data})
 
                         }         
 
@@ -513,8 +513,7 @@ const vis = {
                     
                     function run_on_double_click(d) {
                         clickedOnce = false;
-                        clearTimeout(timer);
-                        console.log("doubleclick");
+                        clearTimeout(timer);                        
                         zoom(d)      
                     }
                     
@@ -541,8 +540,7 @@ const vis = {
                                 // zoom down
                                 root = treemap(d3.hierarchy(d.data, d => d.values)
                                     .sum(d => getSize(d))
-                                );
-                                
+                                );                                
                                 displayChart(root);                            
                             }
                         }
