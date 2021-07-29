@@ -169,7 +169,7 @@ const vis = {
         const measure_names = getMeasureNames(queryResponse);
         const colorScale = d3.scaleOrdinal().range(config.cellColor);  
 
-        var current_branch = config.currentBranch || undefined;
+        var current_branch = config.current_branch || undefined;
  
         var treemap = d3.treemap()
             .size([chartWidth, chartHeight])
@@ -516,7 +516,7 @@ const vis = {
                         clearTimeout(timer);         
                         console.log("d", d)
                         console.log("currentBranch", current_branch)
-                        vis.trigger("updateConfig", [{currentBranch: d}])    
+                        vis.trigger("updateConfig", [{current_branch: d}])    
                         console.log("currentBranch", current_branch)             
                         zoom(d)      
                     }
