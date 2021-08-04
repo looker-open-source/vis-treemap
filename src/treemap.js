@@ -426,7 +426,7 @@ const vis = {
 
                     .on('click', d => {
                         
-                        event.preventDefault();
+                        // event.preventDefault();
 
                          if (clickedOnce) {
                             run_on_double_click(d);
