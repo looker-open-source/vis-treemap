@@ -25,7 +25,7 @@ const default_options = {
     label: "Color Palette - Razorhorse",
     default: ["#aa4436", "#B2564A", "#BB695E", "#C37C72", "#CC8E86", "#D4A19A", "#DDB4AE", "#E5C6C2", "#EED9D6", "#F6ECEA", "#FFFEFE", "#FFFEFE"]
   },
-  current_root: {
+  current_branch: {
     type: "number"
   },
   breadcrumbs: {
